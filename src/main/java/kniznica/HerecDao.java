@@ -4,13 +4,9 @@ package kniznica;
 import java.util.List;
 
 public interface HerecDao {
-     public void saveOrUpdate(Herec herec);
+     public void pridat(Herec herec);
 
-    public void delete(Herec herec);
+    public void odstranit(Herec herec); 
 
-    public Herec findById(Long id);
-    
-    public Herec findByName(String name);
-
-    public List<Herec> findAll();
+    public List<Herec> dajVsetkych();
 }
