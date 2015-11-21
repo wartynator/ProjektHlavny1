@@ -1,7 +1,7 @@
 
 package kniznica;
 
-class Zaner {
+public class Zaner {
     private int id;
     private String meno;
 

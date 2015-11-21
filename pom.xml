@@ -13,12 +13,6 @@
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>sk.upjs.ics.paz1c</groupId>
-            <artifactId>mp3library</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.36</version>

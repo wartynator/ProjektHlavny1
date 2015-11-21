@@ -5,19 +5,28 @@
  */
 package okno;
 
+import java.util.List;
+import kniznica.*;
+import kniznica.Film;
+import kniznica.SQLFilm;
+import kniznica.SQLZaner;
+import kniznica.Zaner;
+
 /**
  *
  * @author Rastislav
  */
-public class menuOkno extends javax.swing.JDialog {
-
+public class menuOkno extends javax.swing.JFrame {
+private SQLZaner ZanerDao = new SQLZaner();
+private SQLFilm FilmDao = new SQLFilm();
+   
     /**
      * Creates new form menuOkno
      */
     public menuOkno(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+        refreshZanre();
         initComponents();
-    }
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,21 +37,101 @@ public class menuOkno extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Zanre = new javax.swing.JList();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Filmy = new javax.swing.JList();
+        PridajFilm = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        Zanre.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        Zanre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ZanreMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(Zanre);
+
+        Filmy.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        Filmy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FilmyMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(Filmy);
+
+        PridajFilm.setText("Pridaj");
+        PridajFilm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PridajFilmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(PridajFilm)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PridajFilm)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+      private void refreshZanre() {
+       List<Zaner> zanre = ZanerDao.dajVsetkych();
+       Zanre.setListData(zanre.toArray());
+       
+    }  
+    
+    private void ZanreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZanreMouseClicked
+        if(evt.getClickCount() == 2){
+        Zaner zaner = (Zaner) Zanre.getSelectedValue();
+        refreshFilmy(zaner.getMeno());
+        }
+    }//GEN-LAST:event_ZanreMouseClicked
+
+    private void PridajFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajFilmActionPerformed
+        Film film = new Film();
+        PridatFilmForm pridatFilm = new PridatFilmForm(this, true, film);
+        pridatFilm.setVisible(true);
+    }//GEN-LAST:event_PridajFilmActionPerformed
+
+    private void FilmyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FilmyMouseClicked
+        if(evt.getClickCount() == 2){
+        Film film = (Film) Filmy.getSelectedValue();
+        FilmInfoForm filmInfoForm = new FilmInfoForm(this, false,film);
+        filmInfoForm.setVisible(true);
+        }
+    }//GEN-LAST:event_FilmyMouseClicked
 
     /**
      * @param args the command line arguments
@@ -87,5 +176,22 @@ public class menuOkno extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList Filmy;
+    private javax.swing.JButton PridajFilm;
+    private javax.swing.JList Zanre;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     // End of variables declaration//GEN-END:variables
+
+    private void refreshFilmy(String meno) {
+        List<Film> filmy = FilmDao.dajZanre(meno);
+        Filmy.setListData(filmy.toArray());
+    }
+
+    
+    
+    
+    
+    
+    
 }

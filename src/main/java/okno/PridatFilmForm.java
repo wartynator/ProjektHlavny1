@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package kniznica;
+package okno;
 
 import java.awt.Frame;
 import java.net.MalformedURLException;
@@ -14,6 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import kniznica.Film;
+import kniznica.Film;
+import kniznica.FilmDao;
+import kniznica.FilmDao;
+import kniznica.FilmDaoFactory;
+import kniznica.FilmDaoFactory;
 
 /**
  *
@@ -37,7 +43,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
         
         setLocationRelativeTo(null);
     
-             
+            this.film=film; 
         
     }
 
@@ -67,13 +73,14 @@ public class PridatFilmForm extends javax.swing.JDialog {
         StatLabel = new javax.swing.JLabel();
         StatTextField = new javax.swing.JTextField();
         ObsahLabel = new javax.swing.JLabel();
-        ObsahTextField = new javax.swing.JTextField();
         TrailerLabel = new javax.swing.JLabel();
         TrailerTextField = new javax.swing.JTextField();
         RecenziaLabel = new javax.swing.JLabel();
         RecenziaTextField = new javax.swing.JTextField();
         OKButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ObsahTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -107,6 +114,15 @@ public class PridatFilmForm extends javax.swing.JDialog {
         });
 
         CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+
+        ObsahTextArea.setColumns(20);
+        ObsahTextArea.setRows(5);
+        jScrollPane1.setViewportView(ObsahTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,9 +187,10 @@ public class PridatFilmForm extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(RecenziaTextField))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(ObsahLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ObsahTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(1, 1, 1)))
                 .addGap(28, 28, 28))
         );
@@ -206,11 +223,15 @@ public class PridatFilmForm extends javax.swing.JDialog {
                     .addComponent(PremieraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(StatLabel)
                     .addComponent(StatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ObsahLabel)
-                    .addComponent(ObsahTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(ObsahLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TrailerLabel)
                     .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,26 +256,42 @@ public class PridatFilmForm extends javax.swing.JDialog {
         String herci = HerciTextField.getText();
         String zaner = ZanerTextField.getText();
         int dlzka = Integer.parseInt(DlzkaTextField.getText());
+        String stat = StatTextField.getText();
+        Date datum = null;
         try {
-            Date datum = sdf.parse(PremieraTextField.getText());
+            datum = sdf.parse(PremieraTextField.getText());
         } catch (ParseException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String obsah = ObsahTextField.getText();
+        String obsah = ObsahTextArea.getText();
+        URL trailer=null;
         try {
-            URL trailer = new URL(TrailerTextField.getText());
+            trailer = new URL(TrailerTextField.getText());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        URL recenzia = null;
+        try {
+            recenzia = new URL(RecenziaTextField.getText());
         } catch (MalformedURLException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        try {
-            URL recenzia = new URL(RecenziaTextField.getText());
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        film.setId(id);
+        film.setHodtenie(hodnotenie);
+        film.setNazov(nazov);
+        film.setHerci(herci);
+        film.setObsah(obsah);
+        film.setPremiera(datum);
+        film.setRecenzie(recenzia);
+        film.setStat(stat);
+        film.setTrailer(trailer);        
+        filmDao.pridat(film);
     }//GEN-LAST:event_OKButtonActionPerformed
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+      this.setVisible(false);
+    }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,7 +349,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
     private javax.swing.JTextField NazovTextField;
     private javax.swing.JButton OKButton;
     private javax.swing.JLabel ObsahLabel;
-    private javax.swing.JTextField ObsahTextField;
+    private javax.swing.JTextArea ObsahTextArea;
     private javax.swing.JLabel PremieraLabel;
     private javax.swing.JTextField PremieraTextField;
     private javax.swing.JLabel RecenziaLabel;
@@ -323,5 +360,6 @@ public class PridatFilmForm extends javax.swing.JDialog {
     private javax.swing.JTextField TrailerTextField;
     private javax.swing.JLabel ZanerLabel;
     private javax.swing.JTextField ZanerTextField;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

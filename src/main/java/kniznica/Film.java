@@ -14,7 +14,15 @@ import java.util.Date;
 public class Film {
     private int Id;
     private int hodtenie;
-    private Herec herec;
+    private String nazov;
+    private String herci;
+    private String zaner;
+    private int dlzka;
+    private Date premiera;
+    private String stat;
+    private String obsah;
+    private URL trailer;
+    private URL recenzie;
 
     public int getId() {
         return Id;
@@ -31,28 +39,36 @@ public class Film {
     public void setHodtenie(int hodtenie) {
         this.hodtenie = hodtenie;
     }
-
-    public Herec getHerec() {
-        return herec;
+      public String getNazov() {
+        return nazov;
     }
 
-    public void setHerec(Herec herec) {
-        this.herec = herec;
+   
+    public void setNazov(String nazov) {
+        this.nazov = nazov;
+    }
+    
+    public String getHerci() {
+        return herci;
     }
 
-    public Zaner getZaner() {
+    public void setHerci(String herci) {
+        this.herci = herci;
+    }
+
+       public String getZaner() {
         return zaner;
     }
 
-    public void setZaner(Zaner zaner) {
+    public void setZaner(String zaner) {
         this.zaner = zaner;
     }
 
-    public Time getDlzka() {
+    public int getDlzka() {
         return dlzka;
     }
 
-    public void setDlzka(Time dlzka) {
+    public void setDlzka(int dlzka) {
         this.dlzka = dlzka;
     }
 
@@ -64,11 +80,11 @@ public class Film {
         this.premiera = premiera;
     }
 
-    public Stat getStat() {
+    public String getStat() {
         return stat;
     }
 
-    public void setStat(Stat stat) {
+    public void setStat(String stat) {
         this.stat = stat;
     }
 
@@ -95,12 +111,11 @@ public class Film {
     public void setRecenzie(URL recenzie) {
         this.recenzie = recenzie;
     }
-    private Zaner zaner;
-    private Time dlzka;
-    private Date premiera;
-    private Stat stat;
-    private String obsah;
-    private URL trailer;
-    private URL recenzie;
+
+   
+  
+
+      
+  
     
 }
