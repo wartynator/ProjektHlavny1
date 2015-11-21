@@ -14,12 +14,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import kniznica.Film;
 import kniznica.Film;
 import kniznica.FilmDao;
 import kniznica.FilmDao;
 import kniznica.FilmDaoFactory;
 import kniznica.FilmDaoFactory;
+import kniznica.SQLFilm;
 
 /**
  *
@@ -27,8 +29,9 @@ import kniznica.FilmDaoFactory;
  */
 public class PridatFilmForm extends javax.swing.JDialog {
     private Film film;
-    private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
-    SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+    
+    //private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
     /**
      * Creates new form PridatFilmForm
      */
@@ -44,7 +47,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     
             this.film=film; 
-        
+         
     }
 
     /**
@@ -83,6 +86,12 @@ public class PridatFilmForm extends javax.swing.JDialog {
         ObsahTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        IDTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDTextFieldActionPerformed(evt);
+            }
+        });
 
         IDLabel.setText("ID");
 
@@ -250,48 +259,107 @@ public class PridatFilmForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
-        int id=Integer.parseInt(IDTextField.getText());
-        int hodnotenie=Integer.parseInt(HodnotenieTextField.getText());
+       int id;
+        String kont1=IDTextField.getText();
+         if(kont1.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste id!");
+            return;
+        }         else{ id=Integer.parseInt(IDTextField.getText());}
+        film.setId(id);
+       
+        int hodnotenie;
+        String kont2=HodnotenieTextField.getText();
+        if(kont2.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste hodnotenie!");
+            return;
+        }   else{hodnotenie=Integer.parseInt(HodnotenieTextField.getText());}      
+        film.setHodtenie(hodnotenie);
+        
         String nazov= NazovTextField.getText();
+        if(nazov.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste nazov!");
+            return;
+        }         
+        film.setNazov(nazov);
         String herci = HerciTextField.getText();
+        if(herci.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste hercov!");
+            return;
+        }         
+        film.setHerci(herci);
         String zaner = ZanerTextField.getText();
-        int dlzka = Integer.parseInt(DlzkaTextField.getText());
+      if(zaner.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
+            return;
+        }         
+        int dlzka;
+        String kont3=DlzkaTextField.getText();
+        if(kont3.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste dlzku filmu!");
+            return;
+        }    else{dlzka = Integer.parseInt(DlzkaTextField.getText());}     
+       
         String stat = StatTextField.getText();
+                if(stat.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
+            return;
+        }         
+       film.setStat(stat);
+       
         Date datum = null;
         try {
             datum = sdf.parse(PremieraTextField.getText());
         } catch (ParseException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        if(datum==null) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste premieru!");
+            return;
+        }         
+        film.setPremiera(datum);
+        
         String obsah = ObsahTextArea.getText();
+        if(obsah.trim().isEmpty()) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste obsah!");
+            return;
+        }      
+        
+        film.setObsah(obsah);
         URL trailer=null;
         try {
             trailer = new URL(TrailerTextField.getText());
         } catch (MalformedURLException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+         if(trailer==null) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
+            return;
+        } 
+        film.setTrailer(trailer);   
+      
         URL recenzia = null;
         try {
             recenzia = new URL(RecenziaTextField.getText());
         } catch (MalformedURLException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        film.setId(id);
-        film.setHodtenie(hodnotenie);
-        film.setNazov(nazov);
-        film.setHerci(herci);
-        film.setObsah(obsah);
-        film.setPremiera(datum);
-        film.setRecenzie(recenzia);
-        film.setStat(stat);
-        film.setTrailer(trailer);        
-        filmDao.pridat(film);
+         if(recenzia==null) {
+                 JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
+            return;
+        } 
+         film.setRecenzie(recenzia);
+         
+        SQLFilm sqlfilm = new SQLFilm();
+        sqlfilm.pridat(film);
     }//GEN-LAST:event_OKButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
       this.setVisible(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,7 +387,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

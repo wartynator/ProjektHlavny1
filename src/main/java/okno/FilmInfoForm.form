@@ -216,6 +216,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="IDTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="DlzkaTextField">
     </Component>

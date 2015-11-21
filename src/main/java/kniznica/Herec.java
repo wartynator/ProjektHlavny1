@@ -6,7 +6,7 @@ import java.net.URL;
 class Herec {
     private Long id;
     private String meno;
-    private URL wiki;
+    private URL wiki;//prepisat v databaze na text z varchar
 
     public Long getId() {
         return id;

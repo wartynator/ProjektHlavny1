@@ -15,7 +15,7 @@ public class SQLHerec implements HerecDao {
     
     public SQLHerec() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost/herec");
+        dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("herec");
         dataSource.setPassword("herec");
         
@@ -26,7 +26,7 @@ public class SQLHerec implements HerecDao {
     @Override
     public void pridat(Herec herec) {
         String sql = "INSERT INTO herec VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, herec.getId(), herec.getMeno(),herec.getWiki());
+        jdbcTemplate.update(sql,  herec.getMeno(),herec.getWiki());
     }
 
     @Override

@@ -12,7 +12,7 @@ public class SQLStat implements StatDao {
     
     public SQLStat() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost/stat");
+        dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("stat");
         dataSource.setPassword("stat");
         

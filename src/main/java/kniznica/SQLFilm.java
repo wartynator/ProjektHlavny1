@@ -15,9 +15,9 @@ public class SQLFilm implements FilmDao {
     
     public SQLFilm() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost/film");
-        dataSource.setUser("film");
-        dataSource.setPassword("film");
+        dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
+        dataSource.setUser("root");
+        dataSource.setPassword("Rastislav1");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -25,13 +25,13 @@ public class SQLFilm implements FilmDao {
 
     @Override
     public void pridat(Film film) {
-        String sql = "INSERT INTO film VALUES (?,?, ?, ?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getHerci(),film.getZaner(),film.getDlzka(),film.getPremiera(),film.getStat(),film.getObsah(),film.getTrailer(),film.getRecenzie());
     }
 
     @Override
     public List<Film> dajVsetkych() {
-        String sql = "SELECT * FROM film";
+        String sql = "SELECT * FROM filmy";
         
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
@@ -39,12 +39,12 @@ public class SQLFilm implements FilmDao {
 
     @Override
     public void odstranit(Film film) {
-        String sql = "DELETE FROM film WHERE id = ?";
+        String sql = "DELETE FROM filmy WHERE id = ?";
         jdbcTemplate.update(sql, film.getId());
     }
 
     public List<Film> dajZanre(String meno) {
-        String sql = "SELECT * FROM film WHERE zaner =" + meno;
+        String sql = "SELECT * FROM filmy WHERE zaner =" + meno;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
     }
