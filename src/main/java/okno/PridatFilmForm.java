@@ -8,7 +8,6 @@ package okno;
 import java.awt.Frame;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,22 +15,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import kniznica.Film;
-import kniznica.Film;
-import kniznica.FilmDao;
-import kniznica.FilmDao;
-import kniznica.FilmDaoFactory;
-import kniznica.FilmDaoFactory;
 import kniznica.SQLFilm;
+import kniznica.Zaner;
 
 /**
  *
  * @author Matúš
  */
 public class PridatFilmForm extends javax.swing.JDialog {
+
     private Film film;
-    
+
     //private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+
     /**
      * Creates new form PridatFilmForm
      */
@@ -40,14 +37,14 @@ public class PridatFilmForm extends javax.swing.JDialog {
         initComponents();
     }
     
-    PridatFilmForm(Frame parent, boolean modal, Film film){
-     super(parent, modal);
+    PridatFilmForm(Frame parent, boolean modal, Film film) {
+        super(parent, modal);
         initComponents();
         
         setLocationRelativeTo(null);
-    
-            this.film=film; 
-         
+        
+        this.film = film;        
+        
     }
 
     /**
@@ -66,15 +63,12 @@ public class PridatFilmForm extends javax.swing.JDialog {
         HodnotenieLabel = new javax.swing.JLabel();
         NazovLabel = new javax.swing.JLabel();
         HerciLabel = new javax.swing.JLabel();
-        HerciTextField = new javax.swing.JTextField();
         ZanerLabel = new javax.swing.JLabel();
-        ZanerTextField = new javax.swing.JTextField();
         DlzkaLabel = new javax.swing.JLabel();
         DlzkaTextField = new javax.swing.JTextField();
         PremieraLabel = new javax.swing.JLabel();
-        PremieraTextField = new javax.swing.JTextField();
+        rokTextField = new javax.swing.JTextField();
         StatLabel = new javax.swing.JLabel();
-        StatTextField = new javax.swing.JTextField();
         ObsahLabel = new javax.swing.JLabel();
         TrailerLabel = new javax.swing.JLabel();
         TrailerTextField = new javax.swing.JTextField();
@@ -84,6 +78,14 @@ public class PridatFilmForm extends javax.swing.JDialog {
         CancelButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ObsahTextArea = new javax.swing.JTextArea();
+        mesiac = new javax.swing.JTextField();
+        den = new javax.swing.JTextField();
+        pridajHercovButton1 = new javax.swing.JButton();
+        pridajZanrejButton1 = new javax.swing.JButton();
+        pridajStatyButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -93,7 +95,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
             }
         });
 
-        IDLabel.setText("ID");
+        IDLabel.setText("ID filmu");
 
         HodnotenieLabel.setText("Hodnotenie");
 
@@ -106,6 +108,12 @@ public class PridatFilmForm extends javax.swing.JDialog {
         DlzkaLabel.setText("Dlzka");
 
         PremieraLabel.setText("Premiera");
+
+        rokTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rokTextFieldActionPerformed(evt);
+            }
+        });
 
         StatLabel.setText("Stat");
 
@@ -133,75 +141,106 @@ public class PridatFilmForm extends javax.swing.JDialog {
         ObsahTextArea.setRows(5);
         jScrollPane1.setViewportView(ObsahTextArea);
 
+        pridajHercovButton1.setText("pridaj hercov");
+
+        pridajZanrejButton1.setText("pridaj zanre");
+        pridajZanrejButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajZanrejButton1ActionPerformed(evt);
+            }
+        });
+
+        pridajStatyButton2.setText("pridaj staty");
+
+        jLabel1.setText("yyyy");
+
+        jLabel2.setText("mm");
+
+        jLabel3.setText("dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(RecenziaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RecenziaTextField))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addComponent(ObsahLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PremieraLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ZanerLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NazovLabel)
+                                    .addComponent(IDLabel))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(NazovTextField))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                        .addComponent(HodnotenieLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TrailerLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ZanerLabel)
+                                    .addComponent(HerciLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pridajHercovButton1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(pridajZanrejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(102, 102, 102)
+                                        .addComponent(DlzkaLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(DlzkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(OKButton)
+                        .addGap(27, 27, 27)
+                        .addComponent(CancelButton)
+                        .addGap(28, 28, 28))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PremieraLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(rokTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mesiac, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PremieraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ZanerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(DlzkaLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DlzkaTextField))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(den, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
                                 .addComponent(StatLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(StatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(OKButton)
-                                .addGap(27, 27, 27)
-                                .addComponent(CancelButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(HerciLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(HerciTextField))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(IDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(NazovLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                                                .addComponent(HodnotenieLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(NazovTextField))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(TrailerLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(RecenziaLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RecenziaTextField))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(ObsahLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(1, 1, 1)))
-                .addGap(28, 28, 28))
+                                .addComponent(pridajStatyButton2)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,23 +258,30 @@ public class PridatFilmForm extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(HerciLabel)
-                    .addComponent(HerciTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pridajHercovButton1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ZanerLabel)
-                    .addComponent(ZanerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DlzkaLabel)
-                    .addComponent(DlzkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DlzkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pridajZanrejButton1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PremieraLabel)
-                    .addComponent(PremieraTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rokTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(StatLabel)
-                    .addComponent(StatTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mesiac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(den, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pridajStatyButton2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
@@ -259,107 +305,126 @@ public class PridatFilmForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
-       int id;
-        String kont1=IDTextField.getText();
-         if(kont1.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste id!");
-            return;
-        }         else{ id=Integer.parseInt(IDTextField.getText());}
-        film.setId(id);
        
-        int hodnotenie;
-        String kont2=HodnotenieTextField.getText();
-        if(kont2.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste hodnotenie!");
+        Film film = new Film();
+        int id;
+        String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id!");
             return;
-        }   else{hodnotenie=Integer.parseInt(HodnotenieTextField.getText());}      
+        } else {
+            id = Integer.parseInt(IDTextField.getText());
+        }
+        film.setId(id);
+        
+        int hodnotenie;
+        String kont2 = HodnotenieTextField.getText();
+        if (kont2.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste hodnotenie!");
+            return;
+        } else {
+            hodnotenie = Integer.parseInt(HodnotenieTextField.getText());
+        }        
         film.setHodtenie(hodnotenie);
         
-        String nazov= NazovTextField.getText();
-        if(nazov.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste nazov!");
+        String nazov = NazovTextField.getText();
+        if (nazov.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste nazov!");
             return;
-        }         
+        }        
         film.setNazov(nazov);
         String herci = HerciTextField.getText();
-        if(herci.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste hercov!");
+        if (herci.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste hercov!");
             return;
-        }         
+        }        
         film.setHerci(herci);
         String zaner = ZanerTextField.getText();
-      if(zaner.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
+        if (zaner.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
             return;
-        }         
+        }        
+        film.setZaner(zaner);
         int dlzka;
-        String kont3=DlzkaTextField.getText();
-        if(kont3.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste dlzku filmu!");
+        String kont3 = DlzkaTextField.getText();
+        if (kont3.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste dlzku filmu!");
             return;
-        }    else{dlzka = Integer.parseInt(DlzkaTextField.getText());}     
-       
+        } else {
+            dlzka = Integer.parseInt(DlzkaTextField.getText());
+        }        
+        
         String stat = StatTextField.getText();
-                if(stat.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
+        if (stat.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
             return;
-        }         
-       film.setStat(stat);
-       
+        }        
+        film.setStat(stat);
+        
         Date datum = null;
         try {
-            datum = sdf.parse(PremieraTextField.getText());
+            datum = sdf.parse(rokTextField.getText()+"-"+mesiac.getText()+"-"+den.getText());
         } catch (ParseException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(datum==null) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste premieru!");
+        if (datum == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste premieru!");
             return;
-        }         
+        }        
         film.setPremiera(datum);
         
         String obsah = ObsahTextArea.getText();
-        if(obsah.trim().isEmpty()) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste obsah!");
+        if (obsah.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste obsah!");
             return;
-        }      
+        }        
         
         film.setObsah(obsah);
-        URL trailer=null;
+        URL trailer = null;
         try {
             trailer = new URL(TrailerTextField.getText());
         } catch (MalformedURLException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-         if(trailer==null) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
+        if (trailer == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
             return;
-        } 
-        film.setTrailer(trailer);   
-      
+        }        
+        film.setTrailer(trailer);        
+        
         URL recenzia = null;
         try {
             recenzia = new URL(RecenziaTextField.getText());
         } catch (MalformedURLException ex) {
             Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-         if(recenzia==null) {
-                 JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
+        if (recenzia == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
             return;
-        } 
-         film.setRecenzie(recenzia);
-         
+        }        
+        film.setRecenzie(recenzia);
+        
         SQLFilm sqlfilm = new SQLFilm();
         sqlfilm.pridat(film);
+        
     }//GEN-LAST:event_OKButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-      this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IDTextFieldActionPerformed
+
+    private void rokTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rokTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rokTextFieldActionPerformed
+
+    private void pridajZanrejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajZanrejButton1ActionPerformed
+        
+        
+    }//GEN-LAST:event_pridajZanrejButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,7 +452,7 @@ public class PridatFilmForm extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -408,7 +473,6 @@ public class PridatFilmForm extends javax.swing.JDialog {
     private javax.swing.JLabel DlzkaLabel;
     private javax.swing.JTextField DlzkaTextField;
     private javax.swing.JLabel HerciLabel;
-    private javax.swing.JTextField HerciTextField;
     private javax.swing.JLabel HodnotenieLabel;
     private javax.swing.JTextField HodnotenieTextField;
     private javax.swing.JLabel IDLabel;
@@ -419,15 +483,21 @@ public class PridatFilmForm extends javax.swing.JDialog {
     private javax.swing.JLabel ObsahLabel;
     private javax.swing.JTextArea ObsahTextArea;
     private javax.swing.JLabel PremieraLabel;
-    private javax.swing.JTextField PremieraTextField;
     private javax.swing.JLabel RecenziaLabel;
     private javax.swing.JTextField RecenziaTextField;
     private javax.swing.JLabel StatLabel;
-    private javax.swing.JTextField StatTextField;
     private javax.swing.JLabel TrailerLabel;
     private javax.swing.JTextField TrailerTextField;
     private javax.swing.JLabel ZanerLabel;
-    private javax.swing.JTextField ZanerTextField;
+    private javax.swing.JTextField den;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField mesiac;
+    private javax.swing.JButton pridajHercovButton1;
+    private javax.swing.JButton pridajStatyButton2;
+    private javax.swing.JButton pridajZanrejButton1;
+    private javax.swing.JTextField rokTextField;
     // End of variables declaration//GEN-END:variables
 }
