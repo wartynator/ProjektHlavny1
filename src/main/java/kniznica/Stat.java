@@ -1,7 +1,7 @@
 
 package kniznica;
 
-class Stat {
+public class Stat {
 private int id;
 private String nazov;
 

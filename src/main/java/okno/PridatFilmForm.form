@@ -317,6 +317,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="pridaj hercov"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridajHercovButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridajZanrejButton1">
       <Properties>
@@ -330,6 +333,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="pridaj staty"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridajStatyButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

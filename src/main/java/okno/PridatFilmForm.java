@@ -15,30 +15,32 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import kniznica.Film;
+import kniznica.Herec;
 import kniznica.SQLFilm;
+import kniznica.Stat;
 import kniznica.Zaner;
 
 /**
  *
  * @author Matúš
  */
-public class PridatFilmForm extends javax.swing.JDialog {
+public class PridatFilmForm extends javax.swing.JFrame {
 
     private Film film;
 
     //private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+    
 
     /**
      * Creates new form PridatFilmForm
      */
     public PridatFilmForm(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+        //super(parent, modal);
         initComponents();
     }
     
     PridatFilmForm(Frame parent, boolean modal, Film film) {
-        super(parent, modal);
+      //  super(parent, modal);
         initComponents();
         
         setLocationRelativeTo(null);
@@ -142,6 +144,11 @@ public class PridatFilmForm extends javax.swing.JDialog {
         jScrollPane1.setViewportView(ObsahTextArea);
 
         pridajHercovButton1.setText("pridaj hercov");
+        pridajHercovButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajHercovButton1ActionPerformed(evt);
+            }
+        });
 
         pridajZanrejButton1.setText("pridaj zanre");
         pridajZanrejButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +158,11 @@ public class PridatFilmForm extends javax.swing.JDialog {
         });
 
         pridajStatyButton2.setText("pridaj staty");
+        pridajStatyButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajStatyButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("yyyy");
 
@@ -422,9 +434,24 @@ public class PridatFilmForm extends javax.swing.JDialog {
     }//GEN-LAST:event_rokTextFieldActionPerformed
 
     private void pridajZanrejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajZanrejButton1ActionPerformed
-        
+Zaner zaner = new Zaner();
+PridajZaner pridajZaner = new PridajZaner(this, false,zaner);
+pridajZaner.setVisible(true);
         
     }//GEN-LAST:event_pridajZanrejButton1ActionPerformed
+
+    private void pridajHercovButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajHercovButton1ActionPerformed
+        Herec herec = new Herec();
+        PridajHerca pridajHerca = new PridajHerca(this, false, herec);
+        pridajHerca.setVisible(true);
+        
+    }//GEN-LAST:event_pridajHercovButton1ActionPerformed
+
+    private void pridajStatyButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajStatyButton2ActionPerformed
+        Stat stat = new Stat();
+        PridajStat pridajStat = new PridajStat(this, false, stat);
+        pridajStat.setVisible(true);
+    }//GEN-LAST:event_pridajStatyButton2ActionPerformed
 
     /**
      * @param args the command line arguments
