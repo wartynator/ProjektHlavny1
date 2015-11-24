@@ -16,8 +16,8 @@ public class SQLHerec implements HerecDao {
     public SQLHerec() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
-        dataSource.setUser("herec");
-        dataSource.setPassword("herec");
+        dataSource.setUser("root");
+        dataSource.setPassword("Rastislav1");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -26,13 +26,12 @@ public class SQLHerec implements HerecDao {
     @Override
     public void pridat(Herec herec) {
         String sql = "INSERT INTO herec VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql,  herec.getMeno(),herec.getWiki());
+        jdbcTemplate.update(sql,herec.getId(),  herec.getMeno(),herec.getWiki().toString());
     }
 
     @Override
     public List<Herec> dajVsetkych() {
         String sql = "SELECT * FROM herec";
-        
         BeanPropertyRowMapper<Herec> mapper = BeanPropertyRowMapper.newInstance(Herec.class);
         return jdbcTemplate.query(sql, mapper);
     }

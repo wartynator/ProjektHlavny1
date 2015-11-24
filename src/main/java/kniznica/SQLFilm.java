@@ -25,8 +25,8 @@ public class SQLFilm implements FilmDao {
 
     @Override
     public void pridat(Film film) {
-        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getHerci(),film.getZaner(),film.getDlzka(),film.getPremiera(),film.getStat(),film.getObsah(),film.getTrailer().toString(),film.getRecenzie().toString());
+        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzie().toString());
     }
 
     @Override
@@ -43,11 +43,7 @@ public class SQLFilm implements FilmDao {
         jdbcTemplate.update(sql, film.getId());
     }
 
-    public List<Film> dajZanre(String meno) {
-        String sql = "SELECT * FROM filmy WHERE zaner =" + meno;
-        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
-        return jdbcTemplate.query(sql, mapper);
-    }
+    
     
 }
 

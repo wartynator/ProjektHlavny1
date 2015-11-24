@@ -12,8 +12,8 @@ public class SQLZaner implements ZanerDao {
     public SQLZaner() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
-        dataSource.setUser("zaner");
-        dataSource.setPassword("zaner");
+        dataSource.setUser("root");
+        dataSource.setPassword("Rastislav1");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }

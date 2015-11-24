@@ -15,11 +15,8 @@ public class Film {
     private int Id;
     private int hodtenie;
     private String nazov;
-    private String herci;
-    private String zaner;
     private int dlzka;
     private Date premiera;
-    private String stat;
     private String obsah;
     private URL trailer;
     private URL recenzie;
@@ -48,22 +45,7 @@ public class Film {
         this.nazov = nazov;
     }
     
-    public String getHerci() {
-        return herci;
-    }
-
-    public void setHerci(String herci) {
-        this.herci = herci;
-    }
-
-       public String getZaner() {
-        return zaner;
-    }
-
-    public void setZaner(String zaner) {
-        this.zaner = zaner;
-    }
-
+   
     public int getDlzka() {
         return dlzka;
     }
@@ -80,14 +62,7 @@ public class Film {
         this.premiera = premiera;
     }
 
-    public String getStat() {
-        return stat;
-    }
-
-    public void setStat(String stat) {
-        this.stat = stat;
-    }
-
+   
     public String getObsah() {
         return obsah;
     }
