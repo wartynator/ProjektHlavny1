@@ -37,69 +37,67 @@ private SQLFilm FilmDao = new SQLFilm();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane3 = new javax.swing.JScrollPane();
-        Zanre = new javax.swing.JList();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        Filmy = new javax.swing.JList();
-        PridajFilm = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        pridajFilmjButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        Zanre.setModel(new javax.swing.AbstractListModel() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        Zanre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ZanreMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(Zanre);
+        jScrollPane1.setViewportView(jList1);
 
-        Filmy.setModel(new javax.swing.AbstractListModel() {
+        jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        Filmy.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                FilmyMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(Filmy);
+        jScrollPane2.setViewportView(jList2);
 
-        PridajFilm.setText("Pridaj");
-        PridajFilm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PridajFilmActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("TOP 10");
+
+        jLabel2.setText("Najnovsich 10");
+
+        pridajFilmjButton1.setText("pridaj fillm");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(PridajFilm)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(pridajFilmjButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PridajFilm)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1))
+                    .addComponent(pridajFilmjButton1))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,27 +110,6 @@ private SQLFilm FilmDao = new SQLFilm();
        
     }  
     
-    private void ZanreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ZanreMouseClicked
-        if(evt.getClickCount() == 2){
-        Zaner zaner = (Zaner) Zanre.getSelectedValue();
-        refreshFilmy(zaner.getMeno());
-        }
-    }//GEN-LAST:event_ZanreMouseClicked
-
-    private void PridajFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajFilmActionPerformed
-        Film film = new Film();
-        PridatFilmForm pridatFilm = new PridatFilmForm(this, true, film);
-        pridatFilm.setVisible(true);
-    }//GEN-LAST:event_PridajFilmActionPerformed
-
-    private void FilmyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FilmyMouseClicked
-        if(evt.getClickCount() == 2){
-        Film film = (Film) Filmy.getSelectedValue();
-        FilmInfoForm filmInfoForm = new FilmInfoForm(this, false,film);
-        filmInfoForm.setVisible(true);
-        }
-    }//GEN-LAST:event_FilmyMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -176,11 +153,13 @@ private SQLFilm FilmDao = new SQLFilm();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList Filmy;
-    private javax.swing.JButton PridajFilm;
-    private javax.swing.JList Zanre;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JList jList1;
+    private javax.swing.JList jList2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton pridajFilmjButton1;
     // End of variables declaration//GEN-END:variables
 
     private void refreshFilmy(String meno) {

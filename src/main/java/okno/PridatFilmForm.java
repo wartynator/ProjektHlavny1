@@ -553,12 +553,16 @@ public class PridatFilmForm extends javax.swing.JFrame {
 
     private void pridajHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajHercaButton1ActionPerformed
 Herec herec = new Herec();
+String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
+            return;}
 String meno = menoHercaTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno herca!");
             return;
         } 
-herec.setMeno(menoHercaTextField1.getText());
+herec.setMeno(meno);
 URL wiki = null;
         try {
             wiki = new URL(hercovZivotopiTextField1.getText());
@@ -581,6 +585,10 @@ URL wiki = null;
 
     private void pridajButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajButton2ActionPerformed
         Zaner zaner = new Zaner();
+        String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
+            return;}
         String menoZanra = zanerTextField1.getText();
         if (menoZanra.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
@@ -593,6 +601,10 @@ URL wiki = null;
 
     private void pridajStatButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajStatButton2ActionPerformed
       Stat stat = new Stat();
+      String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
+            return;}
       String menoStatu = zanerTextField1.getText();
         if (menoStatu.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
