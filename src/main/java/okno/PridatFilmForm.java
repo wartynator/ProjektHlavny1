@@ -5,14 +5,18 @@
  */
 package okno;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -652,13 +656,29 @@ URL wiki = null;
     }//GEN-LAST:event_zmazStatButton4ActionPerformed
     
     private void refreshHerci(){
-    zoznamHercovList1.setListData(herci.toArray());
+       List<String> herci= new ArrayList<>();
+       for (Herec herec : this.herci) {
+            herci.add(this.herci.toString());
+        }
+        zoznamHercovList1.setListData(herci.toArray());
+        herci=null;
     }
     private void refreshZanre(){
+        List<String> zanre= new ArrayList<>();
+       for (Zaner zaner : this.zanre) {
+            zanre.add(this.zanre.toString());
+           
+        }
     zoznamZanreList.setListData(zanre.toArray());
+    zanre=null;
     }
     private void refreshStaty(){
+        List<String> staty = new ArrayList<>();
+         for (Stat stat : this.staty) {
+            staty.add(this.staty.toString());
+        }
     zoznamStatList.setListData(staty.toArray());
+    staty=null;
     }
     
     
