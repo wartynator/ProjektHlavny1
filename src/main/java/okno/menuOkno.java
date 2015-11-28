@@ -6,7 +6,6 @@
 package okno;
 
 import java.util.List;
-import kniznica.*;
 import kniznica.Film;
 import kniznica.SQLFilm;
 import kniznica.SQLZaner;
@@ -106,7 +105,7 @@ private SQLFilm FilmDao = new SQLFilm();
     
       private void refreshZanre() {
        List<Zaner> zanre = ZanerDao.dajVsetkych();
-       Zanre.setListData(zanre.toArray());
+//       Zanre.setListData(zanre.toArray());
        
     }  
     
@@ -163,8 +162,8 @@ private SQLFilm FilmDao = new SQLFilm();
     // End of variables declaration//GEN-END:variables
 
     private void refreshFilmy(String meno) {
-        List<Film> filmy = FilmDao.dajZanre(meno);
-        Filmy.setListData(filmy.toArray());
+//        List<Film> filmy = FilmDao.dajZanre(meno);
+//        Filmy.setListData(filmy.toArray());
     }
 
     

@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package okno;
-
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
@@ -23,10 +21,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import kniznica.Film;
 import kniznica.Herec;
+import kniznica.Reziser;
 import kniznica.SQLFilm;
 import kniznica.SQLHerec;
 import kniznica.SQLStat;
 import kniznica.SQLZaner;
+import kniznica.Scenarista;
 import kniznica.Stat;
 import kniznica.Zaner;
 
@@ -40,6 +40,8 @@ public class PridatFilmForm extends javax.swing.JFrame {
     private Set<Herec>herci= new HashSet<>();
    private Set<Stat> staty = new HashSet<>();
   private  Set<Zaner> zanre = new HashSet<>();
+  private Set<Reziser> reziseri = new HashSet<>();
+  private Set<Scenarista> scenaristi = new HashSet<>();
     //private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
     
 
@@ -71,6 +73,8 @@ public class PridatFilmForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         IDTextField = new javax.swing.JTextField();
         HodnotenieTextField = new javax.swing.JTextField();
         NazovTextField = new javax.swing.JTextField();
@@ -116,6 +120,29 @@ public class PridatFilmForm extends javax.swing.JFrame {
         zmazStatButton4 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         zoznamStatList = new javax.swing.JList();
+        jLabel6 = new javax.swing.JLabel();
+        reziserTextField1 = new javax.swing.JTextField();
+        pridajReziseraButton1 = new javax.swing.JButton();
+        zmazReziseraButton2 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        zoznamReziserovList2 = new javax.swing.JList();
+        jLabel7 = new javax.swing.JLabel();
+        scenaristaTextField1 = new javax.swing.JTextField();
+        pridajScenaristuButton1 = new javax.swing.JButton();
+        zmazScenaristuButton2 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        zoznamScenaristovList3 = new javax.swing.JList();
+        jLabel8 = new javax.swing.JLabel();
+        reziserWikiTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        scenaristaZivotopisTextField1 = new javax.swing.JTextField();
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -244,6 +271,12 @@ public class PridatFilmForm extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(zoznamZanreList);
 
+        pridajStatTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajStatTextField1ActionPerformed(evt);
+            }
+        });
+
         pridajStatButton2.setText("pridaj stat");
         pridajStatButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,6 +297,62 @@ public class PridatFilmForm extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane4.setViewportView(zoznamStatList);
+
+        jLabel6.setText("Rezier");
+
+        reziserTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reziserTextField1ActionPerformed(evt);
+            }
+        });
+
+        pridajReziseraButton1.setText("pridaj rezisera");
+        pridajReziseraButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajReziseraButton1ActionPerformed(evt);
+            }
+        });
+
+        zmazReziseraButton2.setText("zmaz rezisera");
+        zmazReziseraButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zmazReziseraButton2ActionPerformed(evt);
+            }
+        });
+
+        zoznamReziserovList2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(zoznamReziserovList2);
+
+        jLabel7.setText("Scenarista");
+
+        pridajScenaristuButton1.setText("pridaj scenaristu");
+        pridajScenaristuButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pridajScenaristuButton1ActionPerformed(evt);
+            }
+        });
+
+        zmazScenaristuButton2.setText("zmaz scenaristu");
+        zmazScenaristuButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zmazScenaristuButton2ActionPerformed(evt);
+            }
+        });
+
+        zoznamScenaristovList3.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(zoznamScenaristovList3);
+
+        jLabel8.setText("zivotopis");
+
+        jLabel9.setText("zivotopis");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -315,11 +404,20 @@ public class PridatFilmForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(zmazZanerButton))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(OKButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(CancelButton))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(scenaristaTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(scenaristaZivotopisTextField1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pridajScenaristuButton1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(zmazScenaristuButton2))
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(RecenziaLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,14 +426,6 @@ public class PridatFilmForm extends javax.swing.JFrame {
                                     .addComponent(TrailerLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(TrailerTextField))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(DlzkaLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(DlzkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ObsahLabel)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(StatLabel)
@@ -360,8 +450,40 @@ public class PridatFilmForm extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jLabel3))))))))
+                                            .addComponent(jLabel3))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(DlzkaLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(DlzkaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(reziserTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(26, 34, Short.MAX_VALUE)
+                                            .addComponent(ObsahLabel)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(reziserWikiTextField1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(pridajReziseraButton1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(zmazReziseraButton2))))
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(OKButton)
+                .addGap(18, 18, 18)
+                .addComponent(CancelButton)
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,9 +533,29 @@ public class PridatFilmForm extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(reziserTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pridajReziseraButton1)
+                    .addComponent(zmazReziseraButton2)
+                    .addComponent(jLabel8)
+                    .addComponent(reziserWikiTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(scenaristaTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pridajScenaristuButton1)
+                    .addComponent(zmazScenaristuButton2)
+                    .addComponent(jLabel9)
+                    .addComponent(scenaristaZivotopisTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(DlzkaLabel)
@@ -428,11 +570,11 @@ public class PridatFilmForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RecenziaLabel)
                     .addComponent(RecenziaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OKButton)
                     .addComponent(CancelButton))
-                .addGap(48, 48, 48))
+                .addContainerGap())
         );
 
         pack();
@@ -654,19 +796,106 @@ URL wiki = null;
         refreshStaty();
         
     }//GEN-LAST:event_zmazStatButton4ActionPerformed
+
+    private void reziserTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reziserTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reziserTextField1ActionPerformed
+
+    private void pridajReziseraButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajReziseraButton1ActionPerformed
+       Reziser reziser = new Reziser();
+String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
+            return;}
+String meno = reziserTextField1.getText();
+        if (meno.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste meno rezisera!");
+            return;
+        } 
+reziser.setMeno(meno);
+URL wiki = null;
+        try {
+            wiki = new URL(reziserWikiTextField1.getText());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (wiki == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
+            return;
+        }        
+        reziser.setWiki(wiki);
+        reziser.setId(Integer.parseInt(IDTextField.getText()));
+        reziseri.add(reziser);
+    }//GEN-LAST:event_pridajReziseraButton1ActionPerformed
+
+    private void pridajScenaristuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajScenaristuButton1ActionPerformed
+        Scenarista scenarista = new Scenarista();
+String kont1 = IDTextField.getText();
+        if (kont1.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
+            return;}
+String meno = scenaristaTextField1.getText();
+        if (meno.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste meno scenaristu!");
+            return;
+        } 
+scenarista.setMeno(meno);
+URL wiki = null;
+        try {
+            wiki = new URL(scenaristaZivotopisTextField1.getText());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (wiki == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
+            return;
+        }        
+        scenarista.setWiki(wiki);
+        scenarista.setId(Integer.parseInt(IDTextField.getText()));
+        scenaristi.add(scenarista);
+    }//GEN-LAST:event_pridajScenaristuButton1ActionPerformed
+
+    private void zmazReziseraButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazReziseraButton2ActionPerformed
+        Reziser reziser = (Reziser) zoznamReziserovList2.getSelectedValue();
+        reziseri.remove(reziser);
+        refreshReziseri();
+    }//GEN-LAST:event_zmazReziseraButton2ActionPerformed
+
+    private void zmazScenaristuButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazScenaristuButton2ActionPerformed
+      Scenarista scenarista = (Scenarista) zoznamScenaristovList3.getSelectedValue();
+        scenaristi.remove(scenarista);
+        refreshScenaristi();
+    }//GEN-LAST:event_zmazScenaristuButton2ActionPerformed
     
     private void refreshHerci(){
        List<String> herci= new ArrayList<>();
        for (Herec herec : this.herci) {
-            herci.add(this.herci.toString());
+            herci.add(herec.toString());
         }
         zoznamHercovList1.setListData(herci.toArray());
         herci=null;
     }
+    
+    private void refreshScenaristi(){
+       List<String> scenaristi= new ArrayList<>();
+       for (Scenarista scenarista : this.scenaristi) {
+            scenaristi.add(scenarista.toString());
+        }
+        zoznamScenaristovList3.setListData(scenaristi.toArray());
+        scenaristi=null;
+    }
+     private void refreshReziseri(){
+       List<String> reziseri= new ArrayList<>();
+       for (Reziser reziser : this.reziseri) {
+            reziseri.add(reziser.toString());
+        }
+        zoznamReziserovList2.setListData(reziseri.toArray());
+        reziseri=null;
+    }
     private void refreshZanre(){
         List<String> zanre= new ArrayList<>();
        for (Zaner zaner : this.zanre) {
-            zanre.add(this.zanre.toString());
+            zanre.add(zaner.toString());
            
         }
     zoznamZanreList.setListData(zanre.toArray());
@@ -675,7 +904,7 @@ URL wiki = null;
     private void refreshStaty(){
         List<String> staty = new ArrayList<>();
          for (Stat stat : this.staty) {
-            staty.add(this.staty.toString());
+            staty.add(stat.toString());
         }
     zoznamStatList.setListData(staty.toArray());
     staty=null;
@@ -752,22 +981,40 @@ URL wiki = null;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextField menoHercaTextField1;
     private javax.swing.JTextField mesiac;
     private javax.swing.JButton pridajButton2;
     private javax.swing.JButton pridajHercaButton1;
+    private javax.swing.JButton pridajReziseraButton1;
+    private javax.swing.JButton pridajScenaristuButton1;
     private javax.swing.JButton pridajStatButton2;
     private javax.swing.JTextField pridajStatTextField1;
+    private javax.swing.JTextField reziserTextField1;
+    private javax.swing.JTextField reziserWikiTextField1;
     private javax.swing.JTextField rokTextField;
+    private javax.swing.JTextField scenaristaTextField1;
+    private javax.swing.JTextField scenaristaZivotopisTextField1;
     private javax.swing.JTextField zanerTextField1;
     private javax.swing.JButton zmazHercaButton;
+    private javax.swing.JButton zmazReziseraButton2;
+    private javax.swing.JButton zmazScenaristuButton2;
     private javax.swing.JButton zmazStatButton4;
     private javax.swing.JButton zmazZanerButton;
     private javax.swing.JList zoznamHercovList1;
+    private javax.swing.JList zoznamReziserovList2;
+    private javax.swing.JList zoznamScenaristovList3;
     private javax.swing.JList zoznamStatList;
     private javax.swing.JList zoznamZanreList;
     // End of variables declaration//GEN-END:variables

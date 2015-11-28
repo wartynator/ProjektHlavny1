@@ -10,10 +10,14 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class SQLFilm implements FilmDao {
-    private JdbcTemplate jdbcTemplate;
+/**
+ *
+ * @author Rastislav
+ */
+public class SQLReziser implements ReziserDao{
+     private JdbcTemplate jdbcTemplate;
     
-    public SQLFilm() {
+    public SQLReziser() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
@@ -24,25 +28,21 @@ public class SQLFilm implements FilmDao {
     
 
     @Override
-    public void pridat(Film film) {
-        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzie().toString());
+    public void pridat(Reziser reziser) {
+        String sql = "INSERT INTO reziser VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql,reziser.getId(),  reziser.getMeno(),reziser.getWiki().toString());
     }
-
+    
     @Override
-    public List<Film> dajVsetkych() {
-        String sql = "SELECT * FROM filmy";
-        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+    public List<Reziser> dajVsetkych() {
+        String sql = "SELECT * FROM reziser";
+        BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);
         return jdbcTemplate.query(sql, mapper);
     }
-
+    
     @Override
-    public void odstranit(Film film) {
-        String sql = "DELETE FROM filmy WHERE id = ?";
-        jdbcTemplate.update(sql, film.getId());}
-    
-    
-    
+    public void odstranit(Reziser reziser) {
+        String sql = "DELETE FROM reziser WHERE id = ?";
+        jdbcTemplate.update(sql, reziser.getId());
+    }
 }
-
-

@@ -10,10 +10,14 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class SQLFilm implements FilmDao {
-    private JdbcTemplate jdbcTemplate;
+/**
+ *
+ * @author Rastislav
+ */
+public class SQLScenarista implements ScenaristaDao{
+     private JdbcTemplate jdbcTemplate;
     
-    public SQLFilm() {
+    public SQLScenarista() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
@@ -24,25 +28,21 @@ public class SQLFilm implements FilmDao {
     
 
     @Override
-    public void pridat(Film film) {
-        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzie().toString());
+    public void pridat(Scenarista scenarista) {
+        String sql = "INSERT INTO scenarista VALUES (?, ?, ?)";
+        jdbcTemplate.update(sql,scenarista.getId(),  scenarista.getMeno(),scenarista.getWiki().toString());
     }
-
+    
     @Override
-    public List<Film> dajVsetkych() {
-        String sql = "SELECT * FROM filmy";
-        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+    public List<Scenarista> dajVsetkych() {
+        String sql = "SELECT * FROM scenarista";
+        BeanPropertyRowMapper<Scenarista> mapper = BeanPropertyRowMapper.newInstance(Scenarista.class);
         return jdbcTemplate.query(sql, mapper);
     }
-
+    
     @Override
-    public void odstranit(Film film) {
-        String sql = "DELETE FROM filmy WHERE id = ?";
-        jdbcTemplate.update(sql, film.getId());}
-    
-    
-    
+    public void odstranit(Scenarista scenarista) {
+        String sql = "DELETE FROM scenarista WHERE id = ?";
+        jdbcTemplate.update(sql, scenarista.getId());
+    }
 }
-
-
