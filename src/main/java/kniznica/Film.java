@@ -20,6 +20,7 @@ public class Film {
     private String obsah;
     private URL trailer;
     private URL recenzie;
+    
 
     public int getId() {
         return Id;
@@ -87,7 +88,9 @@ public class Film {
         this.recenzie = recenzie;
     }
 
-   
+   public String toString(){
+  return this.nazov ;
+   }
   
 
       

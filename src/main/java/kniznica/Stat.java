@@ -19,5 +19,12 @@ private String nazov;
 
     public void setNazov(String nazov) {
         this.nazov = nazov;
+ 
+    }
+    
+    
+    public String toString(){
+    
+    return this.nazov;
     }
 }

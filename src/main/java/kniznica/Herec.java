@@ -31,5 +31,7 @@ public class Herec {
     public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
-    
+    public String toString(){
+    return this.meno;    
+    }
 }

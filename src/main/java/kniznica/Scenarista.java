@@ -39,4 +39,6 @@ public class Scenarista {
     public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
+    public String toString(){
+    return this.meno;}
 }

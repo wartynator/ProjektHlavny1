@@ -721,6 +721,7 @@ URL wiki = null;
         herec.setWiki(wiki);
         herec.setId(Integer.parseInt(IDTextField.getText()));
         herci.add(herec);
+        refreshHerci();
         
     }//GEN-LAST:event_pridajHercaButton1ActionPerformed
 
@@ -742,6 +743,7 @@ URL wiki = null;
         zaner.setId(Integer.parseInt(IDTextField.getText()));
         zaner.setMeno(menoZanra);
         zanre.add(zaner);
+        refreshZanre();
     }//GEN-LAST:event_pridajButton2ActionPerformed
 
     private void pridajStatButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajStatButton2ActionPerformed
@@ -759,6 +761,7 @@ URL wiki = null;
         stat.setId(Integer.parseInt(IDTextField.getText()));
         stat.setNazov(menoStatu);
         staty.add(stat);
+        refreshZanre();
     }//GEN-LAST:event_pridajStatButton2ActionPerformed
 
     private void zmazZanerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazZanerButtonActionPerformed
@@ -825,6 +828,7 @@ URL wiki = null;
         reziser.setWiki(wiki);
         reziser.setId(Integer.parseInt(IDTextField.getText()));
         reziseri.add(reziser);
+        refreshReziseri();
     }//GEN-LAST:event_pridajReziseraButton1ActionPerformed
 
     private void pridajScenaristuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajScenaristuButton1ActionPerformed
@@ -852,6 +856,7 @@ URL wiki = null;
         scenarista.setWiki(wiki);
         scenarista.setId(Integer.parseInt(IDTextField.getText()));
         scenaristi.add(scenarista);
+        refreshScenaristi();
     }//GEN-LAST:event_pridajScenaristuButton1ActionPerformed
 
     private void zmazReziseraButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazReziseraButton2ActionPerformed
@@ -867,46 +872,20 @@ URL wiki = null;
     }//GEN-LAST:event_zmazScenaristuButton2ActionPerformed
     
     private void refreshHerci(){
-       List<String> herci= new ArrayList<>();
-       for (Herec herec : this.herci) {
-            herci.add(herec.toString());
-        }
-        zoznamHercovList1.setListData(herci.toArray());
-        herci=null;
+       zoznamHercovList1.setListData(this.herci.toArray());
     }
     
     private void refreshScenaristi(){
-       List<String> scenaristi= new ArrayList<>();
-       for (Scenarista scenarista : this.scenaristi) {
-            scenaristi.add(scenarista.toString());
-        }
-        zoznamScenaristovList3.setListData(scenaristi.toArray());
-        scenaristi=null;
+       zoznamScenaristovList3.setListData(this.scenaristi.toArray());
     }
      private void refreshReziseri(){
-       List<String> reziseri= new ArrayList<>();
-       for (Reziser reziser : this.reziseri) {
-            reziseri.add(reziser.toString());
-        }
-        zoznamReziserovList2.setListData(reziseri.toArray());
-        reziseri=null;
+      zoznamReziserovList2.setListData(this.reziseri.toArray());
     }
     private void refreshZanre(){
-        List<String> zanre= new ArrayList<>();
-       for (Zaner zaner : this.zanre) {
-            zanre.add(zaner.toString());
-           
-        }
-    zoznamZanreList.setListData(zanre.toArray());
-    zanre=null;
+       zoznamZanreList.setListData(this.zanre.toArray());
     }
     private void refreshStaty(){
-        List<String> staty = new ArrayList<>();
-         for (Stat stat : this.staty) {
-            staty.add(stat.toString());
-        }
-    zoznamStatList.setListData(staty.toArray());
-    staty=null;
+        zoznamStatList.setListData(this.staty.toArray());
     }
     
     
