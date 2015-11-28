@@ -15,8 +15,8 @@ public class SQLHerec implements HerecDao {
     
     public SQLHerec() {
         MysqlDataSource dataSource = new MysqlDataSource();
-        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/databaza_filmov");
-        dataSource.setUser("matus");
+        dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
+        dataSource.setUser("root");
         dataSource.setPassword("Rastislav1");
         
         jdbcTemplate = new JdbcTemplate(dataSource);

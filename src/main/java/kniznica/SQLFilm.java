@@ -41,7 +41,10 @@ public class SQLFilm implements FilmDao {
         String sql = "DELETE FROM filmy WHERE id = ?";
         jdbcTemplate.update(sql, film.getId());}
     
-    
+    public int idecko(){        
+    String sql = "select max(id) from filmy";
+    int i=jdbcTemplate.queryForInt(sql);
+    return i+1;}
     
 }
 

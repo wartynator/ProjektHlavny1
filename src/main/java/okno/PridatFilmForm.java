@@ -8,13 +8,10 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Array;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +21,9 @@ import kniznica.Herec;
 import kniznica.Reziser;
 import kniznica.SQLFilm;
 import kniznica.SQLHerec;
+import kniznica.SQLKombinovaneTabulky;
+import kniznica.SQLReziser;
+import kniznica.SQLScenarista;
 import kniznica.SQLStat;
 import kniznica.SQLZaner;
 import kniznica.Scenarista;
@@ -42,6 +42,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
   private  Set<Zaner> zanre = new HashSet<>();
   private Set<Reziser> reziseri = new HashSet<>();
   private Set<Scenarista> scenaristi = new HashSet<>();
+  private int id;
     //private FilmDao filmDao = FilmDaoFactory.instance.GetFilmDao();
     
 
@@ -76,10 +77,8 @@ public class PridatFilmForm extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jScrollBar1 = new javax.swing.JScrollBar();
-        IDTextField = new javax.swing.JTextField();
         HodnotenieTextField = new javax.swing.JTextField();
         NazovTextField = new javax.swing.JTextField();
-        IDLabel = new javax.swing.JLabel();
         HodnotenieLabel = new javax.swing.JLabel();
         NazovLabel = new javax.swing.JLabel();
         HerciLabel = new javax.swing.JLabel();
@@ -147,24 +146,11 @@ public class PridatFilmForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        IDTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDTextFieldActionPerformed(evt);
-            }
-        });
-        IDTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                IDTextFieldKeyTyped(evt);
-            }
-        });
-
         HodnotenieTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 HodnotenieTextFieldKeyTyped(evt);
             }
         });
-
-        IDLabel.setText("ID filmu");
 
         HodnotenieLabel.setText("Hodnotenie");
 
@@ -229,6 +215,12 @@ public class PridatFilmForm extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Hercov zivotopis");
+
+        hercovZivotopiTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hercovZivotopiTextField1ActionPerformed(evt);
+            }
+        });
 
         pridajHercaButton1.setText("pridaj herca");
         pridajHercaButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -361,35 +353,29 @@ public class PridatFilmForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(IDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(HerciLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(HerciLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(HodnotenieLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(menoHercaTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hercovZivotopiTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(pridajHercaButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(zmazHercaButton))))
+                        .addComponent(menoHercaTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hercovZivotopiTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pridajHercaButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(zmazHercaButton))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(NazovLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NazovTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(NazovTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(HodnotenieLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
@@ -429,7 +415,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
                         .addComponent(zmazZanerButton))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -484,17 +470,13 @@ public class PridatFilmForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDLabel)
-                    .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(HodnotenieLabel)
-                    .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NazovLabel)
-                    .addComponent(NazovTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(NazovTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HodnotenieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HodnotenieLabel))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -527,7 +509,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
                             .addComponent(zmazHercaButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(zanerTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pridajButton2)
@@ -573,7 +555,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CancelButton)
                             .addComponent(OKButton))))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -581,15 +563,9 @@ public class PridatFilmForm extends javax.swing.JFrame {
 
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+       SQLFilm sqlfilm = new SQLFilm();
         Film film = new Film();
-        int id;
-        String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id!");
-            return;
-        } else {
-            id = Integer.parseInt(IDTextField.getText());
-        }
+         id=sqlfilm.idecko();
         film.setId(id);
         
         int hodnotenie;
@@ -618,7 +594,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
         } else {
             dlzka = Integer.parseInt(DlzkaTextField.getText());
         }        
-        
+        film.setDlzka(dlzka);
         
         
         Date datum = null;
@@ -664,11 +640,14 @@ public class PridatFilmForm extends javax.swing.JFrame {
         }        
         film.setRecenzie(recenzia);
         
-        SQLFilm sqlfilm = new SQLFilm();
+        
         sqlfilm.pridat(film);
         SQLStat sqlstat = new SQLStat();
         SQLHerec sqlherec = new SQLHerec();
         SQLZaner sqlzaner = new SQLZaner();
+        SQLScenarista sqlscenarista = new SQLScenarista();
+        SQLReziser sqlreziser = new SQLReziser();
+        System.out.println(reziseri.toString());
         for (Herec herci1 : herci) {
             sqlherec.pridat(herci1);
         }
@@ -678,15 +657,19 @@ public class PridatFilmForm extends javax.swing.JFrame {
         for (Zaner zanre1 : zanre) {
             sqlzaner.pridat(zanre1);
         }
+        for(Scenarista scenarista1:scenaristi){
+        sqlscenarista.pridat(scenarista1);}
+       
+        for(Reziser reziser1 : reziseri){
+        sqlreziser.pridat(reziser1);}
+        JOptionPane.showMessageDialog(null,"Film bol uspesne pridany");
+         this.setVisible(false);
     }//GEN-LAST:event_OKButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         this.setVisible(false);
+       this.disable();
     }//GEN-LAST:event_CancelButtonActionPerformed
-
-    private void IDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDTextFieldActionPerformed
 
     private void rokTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rokTextFieldActionPerformed
         // TODO add your handling code here:
@@ -698,10 +681,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
 
     private void pridajHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajHercaButton1ActionPerformed
 Herec herec = new Herec();
-String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
-            return;}
+
 String meno = menoHercaTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno herca!");
@@ -719,10 +699,11 @@ URL wiki = null;
             return;
         }        
         herec.setWiki(wiki);
-        herec.setId(Integer.parseInt(IDTextField.getText()));
+        herec.setId(id);
         herci.add(herec);
         refreshHerci();
-        
+        hercovZivotopiTextField1.setText("");
+        menoHercaTextField1.setText("");
     }//GEN-LAST:event_pridajHercaButton1ActionPerformed
 
     private void TrailerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrailerTextFieldActionPerformed
@@ -731,37 +712,33 @@ URL wiki = null;
 
     private void pridajButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajButton2ActionPerformed
         Zaner zaner = new Zaner();
-        String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
-            return;}
+       
         String menoZanra = zanerTextField1.getText();
         if (menoZanra.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
             return;
         } 
-        zaner.setId(Integer.parseInt(IDTextField.getText()));
+        zaner.setId(id);
         zaner.setMeno(menoZanra);
         zanre.add(zaner);
         refreshZanre();
+        zanerTextField1.setText("");
     }//GEN-LAST:event_pridajButton2ActionPerformed
 
     private void pridajStatButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajStatButton2ActionPerformed
       Stat stat = new Stat();
-      String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
-            return;}
-      String menoStatu = zanerTextField1.getText();
+      
+      String menoStatu =pridajStatTextField1.getText();
         if (menoStatu.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
             return;
         } 
         
-        stat.setId(Integer.parseInt(IDTextField.getText()));
+        stat.setId(id);
         stat.setNazov(menoStatu);
         staty.add(stat);
-        refreshZanre();
+        refreshStaty();
+        pridajStatTextField1.setText("");
     }//GEN-LAST:event_pridajStatButton2ActionPerformed
 
     private void zmazZanerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zmazZanerButtonActionPerformed
@@ -777,13 +754,6 @@ URL wiki = null;
         herci.remove(herec);
         refreshHerci();
     }//GEN-LAST:event_zmazHercaButtonActionPerformed
-
-    private void IDTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDTextFieldKeyTyped
-        char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
-        }
-    }//GEN-LAST:event_IDTextFieldKeyTyped
 
     private void HodnotenieTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HodnotenieTextFieldKeyTyped
         char c =evt.getKeyChar();
@@ -805,10 +775,7 @@ URL wiki = null;
 
     private void pridajReziseraButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajReziseraButton1ActionPerformed
        Reziser reziser = new Reziser();
-String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
-            return;}
+
 String meno = reziserTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno rezisera!");
@@ -826,17 +793,17 @@ URL wiki = null;
             return;
         }        
         reziser.setWiki(wiki);
-        reziser.setId(Integer.parseInt(IDTextField.getText()));
+        reziser.setId(id);
         reziseri.add(reziser);
         refreshReziseri();
+        reziserTextField1.setText("");
+        reziserWikiTextField1.setText("");
+        
     }//GEN-LAST:event_pridajReziseraButton1ActionPerformed
 
     private void pridajScenaristuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajScenaristuButton1ActionPerformed
         Scenarista scenarista = new Scenarista();
-String kont1 = IDTextField.getText();
-        if (kont1.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste id filmu!");
-            return;}
+
 String meno = scenaristaTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno scenaristu!");
@@ -854,7 +821,7 @@ URL wiki = null;
             return;
         }        
         scenarista.setWiki(wiki);
-        scenarista.setId(Integer.parseInt(IDTextField.getText()));
+        scenarista.setId(id);
         scenaristi.add(scenarista);
         refreshScenaristi();
     }//GEN-LAST:event_pridajScenaristuButton1ActionPerformed
@@ -870,6 +837,10 @@ URL wiki = null;
         scenaristi.remove(scenarista);
         refreshScenaristi();
     }//GEN-LAST:event_zmazScenaristuButton2ActionPerformed
+
+    private void hercovZivotopiTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hercovZivotopiTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hercovZivotopiTextField1ActionPerformed
     
     private void refreshHerci(){
        zoznamHercovList1.setListData(this.herci.toArray());
@@ -938,8 +909,6 @@ URL wiki = null;
     private javax.swing.JLabel HerciLabel;
     private javax.swing.JLabel HodnotenieLabel;
     private javax.swing.JTextField HodnotenieTextField;
-    private javax.swing.JLabel IDLabel;
-    private javax.swing.JTextField IDTextField;
     private javax.swing.JLabel NazovLabel;
     private javax.swing.JTextField NazovTextField;
     private javax.swing.JButton OKButton;
