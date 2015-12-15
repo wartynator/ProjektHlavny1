@@ -13,7 +13,7 @@ public class SQLZaner implements ZanerDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("WaR753321");
+        dataSource.setPassword("Rastislav1");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -44,5 +44,11 @@ public class SQLZaner implements ZanerDao {
         BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
         return jdbcTemplate.query(sql, mapper);
     }
+   public Zaner podlaID(int id){
+        String sql = "SELECT * FROM zaner where id = "+id;
+        BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
+        List<Zaner>zanre= jdbcTemplate.query(sql, mapper);
+        Zaner vysledny = zanre.get(0);
+        return vysledny;}
 }
 
