@@ -14,7 +14,7 @@ public class SQLStat implements StatDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -38,6 +38,12 @@ public class SQLStat implements StatDao {
     public void odstranit(Stat stat) {
         String sql = "DELETE FROM stat WHERE id = ?";
         jdbcTemplate.update(sql, stat.getId());
+    }
+    
+     public List<Stat> dajVsetkychZID(String id) {
+        String sql = "SELECT * FROM stat where id = "+id;
+        BeanPropertyRowMapper<Stat> mapper = BeanPropertyRowMapper.newInstance(Stat.class);
+        return jdbcTemplate.query(sql, mapper);
     }
     
 }

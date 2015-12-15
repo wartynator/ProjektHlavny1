@@ -17,4 +17,5 @@ public interface ScenaristaDao {
     public void odstranit(Scenarista scenarista);
 
     public List<Scenarista> dajVsetkych();
+    public List<Scenarista> dajVsetkychZID(String id);
 }

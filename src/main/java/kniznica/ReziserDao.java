@@ -17,4 +17,5 @@ public interface ReziserDao {
     public void odstranit(Reziser reziser);
 
     public List<Reziser> dajVsetkych();
+    public List<Reziser> dajVsetkychZID(String id);
 }

@@ -13,7 +13,7 @@ public class SQLZaner implements ZanerDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -27,7 +27,7 @@ public class SQLZaner implements ZanerDao {
 
     @Override
     public List<Zaner> dajVsetkych() {
-        String sql = "SELECT * FROM zaner";
+        String sql = "SELECT DISTINCT meno FROM zaner";
         
         BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
         return jdbcTemplate.query(sql, mapper);
@@ -39,5 +39,10 @@ public class SQLZaner implements ZanerDao {
         jdbcTemplate.update(sql, zaner.getId());
     }
     
+    public List<Zaner> dajVsetkychZID(String id) {
+        String sql = "SELECT * FROM zaner where id = "+id;
+        BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
 }
 

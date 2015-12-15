@@ -516,9 +516,6 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="pridajStatTextField1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridajStatTextField1ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="pridajStatButton2">
       <Properties>

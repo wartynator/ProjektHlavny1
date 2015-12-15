@@ -17,7 +17,7 @@ public class SQLHerec implements HerecDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -40,6 +40,12 @@ public class SQLHerec implements HerecDao {
     public void odstranit(Herec herec) {
         String sql = "DELETE FROM herec WHERE id = ?";
         jdbcTemplate.update(sql, herec.getId());
+    }
+    
+    public List<Herec> dajVsetkychZID(String id) {
+        String sql = "SELECT * FROM herec where id = "+id;
+        BeanPropertyRowMapper<Herec> mapper = BeanPropertyRowMapper.newInstance(Herec.class);
+        return jdbcTemplate.query(sql, mapper);
     }
     
 }

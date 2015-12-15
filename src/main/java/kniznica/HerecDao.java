@@ -9,4 +9,5 @@ public interface HerecDao {
     public void odstranit(Herec herec); 
 
     public List<Herec> dajVsetkych();
+    public List<Herec>dajVsetkychZID(String id);
 }

@@ -11,4 +11,6 @@ public interface ZanerDao {
 
 
     public List<Zaner> dajVsetkych();    
+
+    public List<Zaner> dajVsetkychZID(String id);
 }

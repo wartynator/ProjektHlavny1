@@ -17,7 +17,7 @@ public class SQLFilm implements FilmDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -26,7 +26,7 @@ public class SQLFilm implements FilmDao {
     @Override
     public void pridat(Film film) {
         String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, film.getId(), film.getHodtenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzie().toString());
+        jdbcTemplate.update(sql, film.getId(), film.getHodnotenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzia().toString());
     }
 
     @Override
@@ -45,7 +45,26 @@ public class SQLFilm implements FilmDao {
     String sql = "select max(id) from filmy";
     int i=jdbcTemplate.queryForInt(sql);
     return i+1;}
+
+    @Override
+    public List<Film> dajVsetkychZaner(String zaner) {
+        String sql = "SELECT * FROM filmy WHERE zaner = " + zaner;
+        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        return jdbcTemplate.query(sql, mapper);}
     
+    
+    public List<Film> dajTop10(){
+        String sql = "SELECT * FROM filmy order by hodnotenie desc limit 10";
+        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+    
+    public List<Film> dajNajnov10(){
+        String sql = "SELECT * FROM filmy order by id desc limit 10";
+        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+
 }
 
 

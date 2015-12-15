@@ -13,13 +13,13 @@ import java.util.Date;
 
 public class Film {
     private int Id;
-    private int hodtenie;
+    private int hodnotenie;
     private String nazov;
     private int dlzka;
     private Date premiera;
     private String obsah;
     private URL trailer;
-    private URL recenzie;
+    private URL recenzia;
     
 
     public int getId() {
@@ -30,12 +30,12 @@ public class Film {
         this.Id = Id;
     }
 
-    public int getHodtenie() {
-        return hodtenie;
+    public int getHodnotenie() {
+        return hodnotenie;
     }
 
-    public void setHodtenie(int hodtenie) {
-        this.hodtenie = hodtenie;
+    public void setHodnotenie(int hodnotenie) {
+        this.hodnotenie = hodnotenie;
     }
       public String getNazov() {
         return nazov;
@@ -80,12 +80,12 @@ public class Film {
         this.trailer = trailer;
     }
 
-    public URL getRecenzie() {
-        return recenzie;
+    public URL getRecenzia() {
+        return recenzia;
     }
 
-    public void setRecenzie(URL recenzie) {
-        this.recenzie = recenzie;
+    public void setRecenzia(URL recenzia) {
+        this.recenzia = recenzia;
     }
 
    public String toString(){

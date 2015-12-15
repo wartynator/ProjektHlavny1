@@ -5,6 +5,7 @@
  */
 package okno;
 
+import java.awt.Color;
 import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -48,23 +49,37 @@ public class FilmInfoForm extends javax.swing.JDialog {
         this.film = film;
         
         NazovFilmu.setText(film.getNazov());
-        HodnotenieLabel.setText(Integer.toString(film.getHodtenie()));
-        herci = HerecDao.dajVsetkychZID(Integer.toString(film.getId()));
-    
-        HerciList.setListData(herci.toArray());
-        staty = StatDao.dajVsetkychZID(Integer.toString(film.getId()));
+        NazovFilmu.setForeground(Color.red);
+        NazovFilmu.setSize(40,50);
         
+        HodnotenieLabel.setText(Integer.toString(film.getHodnotenie())+"%");
+        
+        herci = HerecDao.dajVsetkychZID(Integer.toString(film.getId()));
+        HerciList.setListData(herci.toArray());
+    
+        staty = StatDao.dajVsetkychZID(Integer.toString(film.getId()));
         StatyList.setListData(staty.toArray());
+        
         zanre = ZanerDao.dajVsetkychZID(Integer.toString(film.getId()));
-       
         ZanreList.setListData(zanre.toArray());
+       
         reziser = ReziserDao.dajVsetkychZID(Integer.toString(film.getId()));
         ReziserTextField.setText(reziser.toString());
+        
         scenarista=ScenaristaDao.dajVsetkychZID(Integer.toString(film.getId()));
         ScenaristaTextField.setText(scenarista.toString());
-        RecenziaTextField.setText(film.getRecenzie().toString());
-        TrailerTextField.setText(film.getTrailer().toString());
+        
+        String recenzia = film.getRecenzia().toString();        
+        RecenziaTextField.setText(recenzia);
+        
+        String trailer = film.getTrailer().toString();
+        TrailerTextField.setText(trailer);
+        
         DlzkaTextField.setText(Integer.toString(film.getDlzka()));
+        obsahTextArea.setLineWrap(true);
+        obsahTextArea.setWrapStyleWord(true);
+        obsahTextArea.setText(film.getObsah());
+        
         
         
         
@@ -103,12 +118,13 @@ public class FilmInfoForm extends javax.swing.JDialog {
         DlzkaTextField = new javax.swing.JTextField();
         ObsahLabel = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        obsahTextArea = new javax.swing.JTextArea();
         RecenziaLabel = new javax.swing.JLabel();
         RecenziaTextField = new javax.swing.JTextField();
         TrailerLabel = new javax.swing.JLabel();
         TrailerTextField = new javax.swing.JTextField();
         ZatvorButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         NazovFilmu.setText("jLabel1");
 
@@ -155,9 +171,9 @@ public class FilmInfoForm extends javax.swing.JDialog {
 
         ObsahLabel.setText("Obsah");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane5.setViewportView(jTextArea1);
+        obsahTextArea.setColumns(20);
+        obsahTextArea.setRows(5);
+        jScrollPane5.setViewportView(obsahTextArea);
 
         RecenziaLabel.setText("Recenzia");
 
@@ -168,22 +184,32 @@ public class FilmInfoForm extends javax.swing.JDialog {
         TrailerTextField.setText("jTextField1");
 
         ZatvorButton.setText("Zatvor");
+        ZatvorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ZatvorButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Hodnotenie:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(HodnotenieLabel)
+                .addGap(271, 271, 271))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(359, 359, 359)
-                        .addComponent(HodnotenieLabel))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jLabel1)
                             .addGap(22, 22, 22)
-                            .addComponent(ScenaristaTextField))
+                            .addComponent(ScenaristaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +219,6 @@ public class FilmInfoForm extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                                 .addComponent(jScrollPane3)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(228, 228, 228)
-                            .addComponent(NazovFilmu))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addContainerGap()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,29 +240,32 @@ public class FilmInfoForm extends javax.swing.JDialog {
                             .addComponent(TrailerLabel))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(DlzkaTextField)
-                                    .addGap(162, 162, 162))
-                                .addComponent(RecenziaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(ZatvorButton)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(DlzkaTextField)
+                                        .addGap(162, 162, 162))
+                                    .addComponent(RecenziaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(NazovFilmu)))
                 .addContainerGap(220, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ZatvorButton)
-                .addGap(152, 152, 152))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(NazovFilmu)
-                .addGap(9, 9, 9)
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HodnotenieLabel)
+                    .addComponent(jLabel3))
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(HodnotenieLabel)
-                        .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(HerciLabel)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,9 +300,9 @@ public class FilmInfoForm extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TrailerLabel)
                     .addComponent(TrailerTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addComponent(ZatvorButton)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -285,21 +311,21 @@ public class FilmInfoForm extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1011, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 942, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ZatvorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZatvorButtonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_ZatvorButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,12 +390,13 @@ public class FilmInfoForm extends javax.swing.JDialog {
     private javax.swing.JButton ZatvorButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea obsahTextArea;
     // End of variables declaration//GEN-END:variables
 }

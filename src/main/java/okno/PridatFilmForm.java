@@ -16,19 +16,9 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import kniznica.Film;
-import kniznica.Herec;
-import kniznica.Reziser;
-import kniznica.SQLFilm;
-import kniznica.SQLHerec;
-import kniznica.SQLKombinovaneTabulky;
-import kniznica.SQLReziser;
-import kniznica.SQLScenarista;
-import kniznica.SQLStat;
-import kniznica.SQLZaner;
-import kniznica.Scenarista;
-import kniznica.Stat;
-import kniznica.Zaner;
+import javax.swing.JScrollPane;
+
+import kniznica.*;
 
 /**
  *
@@ -52,6 +42,8 @@ public class PridatFilmForm extends javax.swing.JFrame {
     public PridatFilmForm(java.awt.Frame parent, boolean modal) {
         //super(parent, modal);
         initComponents();
+
+        
     }
     
     PridatFilmForm(Frame parent, boolean modal, Film film) {
@@ -263,12 +255,6 @@ public class PridatFilmForm extends javax.swing.JFrame {
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(zoznamZanreList);
-
-        pridajStatTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pridajStatTextField1ActionPerformed(evt);
-            }
-        });
 
         pridajStatButton2.setText("pridaj stat");
         pridajStatButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -563,9 +549,9 @@ public class PridatFilmForm extends javax.swing.JFrame {
 
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKButtonActionPerformed
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-       SQLFilm sqlfilm = new SQLFilm();
+        FilmDao sqlfilm = FilmDaoFactory.INSTANCE.getFilmDao();
         Film film = new Film();
-         id=sqlfilm.idecko();
+        id=sqlfilm.idecko();
         film.setId(id);
         
         int hodnotenie;
@@ -576,7 +562,7 @@ public class PridatFilmForm extends javax.swing.JFrame {
         } else {
             hodnotenie = Integer.parseInt(HodnotenieTextField.getText());
         }        
-        film.setHodtenie(hodnotenie);
+        film.setHodnotenie(hodnotenie);
         
         String nazov = NazovTextField.getText();
         if (nazov.trim().isEmpty()) {
@@ -638,30 +624,30 @@ public class PridatFilmForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
             return;
         }        
-        film.setRecenzie(recenzia);
+        film.setRecenzia(recenzia);
         
         
         sqlfilm.pridat(film);
-        SQLStat sqlstat = new SQLStat();
-        SQLHerec sqlherec = new SQLHerec();
-        SQLZaner sqlzaner = new SQLZaner();
-        SQLScenarista sqlscenarista = new SQLScenarista();
-        SQLReziser sqlreziser = new SQLReziser();
+        StatDao sqlstat = StatDaoFactory.INSTANCE.getStatDao();
+        HerecDao sqlherec = HerecDaoFactory.INSTANCE.getHerecDao();
+        ZanerDao sqlzaner = ZanerDaoFactory.INSTANCE.getZanerDao();
+        ScenaristaDao sqlscenarista = ScenaristaDaoFactory.INSTANCE.getScenaristaDao();
+        ReziserDao sqlreziser = ReziserDaoFactory.INSTANCE.getReziserDao();
         System.out.println(reziseri.toString());
-        for (Herec herci1 : herci) {
-            sqlherec.pridat(herci1);
+        for (Herec herec : herci) {
+            sqlherec.pridat(herec);
         }
-        for (Stat staty1 : staty) {
-            sqlstat.pridat(staty1);
+        for (Stat stat : staty) {
+            sqlstat.pridat(stat);
         }
-        for (Zaner zanre1 : zanre) {
-            sqlzaner.pridat(zanre1);
+        for (Zaner zaner : zanre) {
+            sqlzaner.pridat(zaner);
         }
-        for(Scenarista scenarista1:scenaristi){
-        sqlscenarista.pridat(scenarista1);}
+        for(Scenarista scenarista:scenaristi){
+        sqlscenarista.pridat(scenarista);}
        
-        for(Reziser reziser1 : reziseri){
-        sqlreziser.pridat(reziser1);}
+        for(Reziser reziser : reziseri){
+        sqlreziser.pridat(reziser);}
         JOptionPane.showMessageDialog(null,"Film bol uspesne pridany");
          this.setVisible(false);
     }//GEN-LAST:event_OKButtonActionPerformed
@@ -678,33 +664,6 @@ public class PridatFilmForm extends javax.swing.JFrame {
     private void menoHercaTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menoHercaTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menoHercaTextField1ActionPerformed
-
-    private void pridajHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajHercaButton1ActionPerformed
-Herec herec = new Herec();
-
-String meno = menoHercaTextField1.getText();
-        if (meno.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste meno herca!");
-            return;
-        } 
-herec.setMeno(meno);
-URL wiki = null;
-        try {
-            wiki = new URL(hercovZivotopiTextField1.getText());
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (wiki == null) {
-            JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
-            return;
-        }        
-        herec.setWiki(wiki);
-        herec.setId(id);
-        herci.add(herec);
-        refreshHerci();
-        hercovZivotopiTextField1.setText("");
-        menoHercaTextField1.setText("");
-    }//GEN-LAST:event_pridajHercaButton1ActionPerformed
 
     private void TrailerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrailerTextFieldActionPerformed
         // TODO add your handling code here:
@@ -841,6 +800,33 @@ URL wiki = null;
     private void hercovZivotopiTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hercovZivotopiTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_hercovZivotopiTextField1ActionPerformed
+
+    private void pridajHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajHercaButton1ActionPerformed
+        Herec herec = new Herec();
+        herec.setId(id);
+        String meno = menoHercaTextField1.getText();
+        if (meno.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste meno herca!");
+            return;
+        }
+        herec.setMeno(meno);
+        URL wiki = null;
+        try {
+            wiki = new URL(hercovZivotopiTextField1.getText());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (wiki == null) {
+            JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
+            return;
+        }
+        herec.setWiki(wiki);
+
+        herci.add(herec);
+        refreshHerci();
+        hercovZivotopiTextField1.setText("");
+        menoHercaTextField1.setText("");
+    }//GEN-LAST:event_pridajHercaButton1ActionPerformed
     
     private void refreshHerci(){
        zoznamHercovList1.setListData(this.herci.toArray());

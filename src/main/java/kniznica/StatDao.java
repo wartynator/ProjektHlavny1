@@ -9,4 +9,5 @@ public interface StatDao {
     public void odstranit(Stat stat);
 
     public List<Stat> dajVsetkych();
+    public List<Stat> dajVsetkychZID(String id);
 }
