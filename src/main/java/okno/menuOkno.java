@@ -135,7 +135,7 @@ public class menuOkno extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(210, 10, 28, 14);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matúš\\Desktop\\ft.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matúš\\Documents\\NetBeansProjects\\projektHlavny\\ft.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 660, 390);
 
