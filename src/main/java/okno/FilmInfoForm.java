@@ -86,14 +86,18 @@ public class FilmInfoForm extends javax.swing.JDialog {
         
         String recenzia = film.getRecenzia().toString();        
         RecenziaTextField.setText(recenzia);
+        RecenziaTextField.setEditable(false);
         
         String trailer = film.getTrailer().toString();
         TrailerTextField.setText(trailer);
+        TrailerTextField.setEditable(false);
         
         DlzkaTextField.setText(Integer.toString(film.getDlzka()));
+        DlzkaTextField.setEditable(false);
         obsahTextArea.setLineWrap(true);
         obsahTextArea.setWrapStyleWord(true);
         obsahTextArea.setText(film.getObsah());
+        obsahTextArea.setEditable(false);
         
         
         
@@ -142,6 +146,8 @@ public class FilmInfoForm extends javax.swing.JDialog {
         ScenaristaList = new javax.swing.JList();
         RecenziaButton = new javax.swing.JButton();
         TrailerButton = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         NazovFilmu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         NazovFilmu.setText("jLabel1");

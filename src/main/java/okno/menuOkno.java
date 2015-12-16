@@ -1,5 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
+/* To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -89,11 +88,11 @@ public class menuOkno extends javax.swing.JFrame {
 
         jLabel1.setText("TOP 10");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(385, 16, 35, 14);
+        jLabel1.setBounds(385, 16, 60, 14);
 
         jLabel2.setText("Najnovsich 10");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(540, 16, 67, 14);
+        jLabel2.setBounds(540, 16, 90, 14);
 
         FilmyList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -117,7 +116,7 @@ public class menuOkno extends javax.swing.JFrame {
             }
         });
         getContentPane().add(pridajFilmButton);
-        pridajFilmButton.setBounds(10, 36, 130, 23);
+        pridajFilmButton.setBounds(10, 36, 90, 23);
 
         HladajButton.setText("Hladaj");
         HladajButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +132,7 @@ public class menuOkno extends javax.swing.JFrame {
 
         jLabel4.setText("Filmy:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 10, 28, 14);
+        jLabel4.setBounds(210, 10, 40, 14);
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matúš\\Documents\\NetBeansProjects\\projektHlavny\\ft.jpg")); // NOI18N
         getContentPane().add(jLabel3);

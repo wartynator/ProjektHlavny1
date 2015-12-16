@@ -31,7 +31,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
     private Film film;
     private Set<Herec>herci= new HashSet<>();
     private Set<Stat> staty = new HashSet<>();
-    private  Set<Zaner> zanre = new HashSet<>();
+    private Set<Zaner> zanre = new HashSet<>();
     private Set<Reziser> reziseri = new HashSet<>();
     private Set<Scenarista> scenaristi = new HashSet<>();
     private int id= sqlfilm.idecko();
@@ -132,6 +132,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         ScenaristaLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
         HerciLabel2.setText("Herci");
 
@@ -597,7 +599,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -651,7 +653,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         try {
             datum = sdf.parse(rokTextField1.getText()+"-"+mesiac1.getText()+"-"+den1.getText());
         } catch (ParseException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (datum == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste premieru!");
@@ -670,7 +672,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         try {
             trailer = new URL(TrailerTextField1.getText());
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (trailer == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
@@ -682,7 +684,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         try {
             recenzia = new URL(RecenziaTextField1.getText());
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (recenzia == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
@@ -795,7 +797,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         try {
             wiki = new URL(HercovZivotopisTextField1.getText());
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (wiki == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
@@ -850,7 +852,7 @@ URL wiki = null;
         try {
             wiki = new URL(RezZivTextField1.getText());
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (wiki == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
@@ -883,7 +885,7 @@ URL wiki = null;
         try {
             wiki = new URL(ScenZivTextField1.getText());
         } catch (MalformedURLException ex) {
-            Logger.getLogger(PridatFilmForm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (wiki == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
@@ -920,13 +922,13 @@ URL wiki = null;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PridatFilmFormCisto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PridatFilmFormCisto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PridatFilmFormCisto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PridatFilmForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PridatFilmFormCisto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
