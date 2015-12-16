@@ -49,330 +49,310 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <Component id="NazovLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                      <Component id="NazovTextField1" min="-2" pref="205" max="-2" attributes="0"/>
+                      <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
+                      <Component id="HodnotenieLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="HodnotenieTextField1" min="-2" pref="109" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                      <Component id="jScrollPane8" min="-2" pref="176" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="HerciLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MenoHercaTextField" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                          <Component id="HercovZivotopisTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="ZmazHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="jScrollPane9" min="-2" pref="176" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="NazovZanruLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ZanerTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="ZmazZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="StatLabel1" min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="jScrollPane10" min="-2" pref="173" max="-2" attributes="0"/>
+                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="StatyTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajStatButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="ZmazStatButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="ReziserLabel1" min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Component id="jScrollPane14" min="-2" pref="173" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="HerciLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="ReziserTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <Component id="RezZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajReziseraButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="ZmazReziseraButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ScenaristaLabel2" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="NazovTextField1" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="StatyTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jScrollPane8" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="HerciLabel3" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="MenoHercaTextField" min="-2" pref="118" max="-2" attributes="0"/>
-                                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="HercovZivotopisTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jScrollPane9" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="ZanerTextField1" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                                                      <Component id="NazovZanruLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="HodnotenieTextField1" min="-2" pref="109" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="RecenziaLabel1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="RecenziaTextField1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="PremieraLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="DlzkaLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="rokTextField1" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                                          <Component id="RokLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="mesiac1" min="-2" pref="25" max="-2" attributes="0"/>
-                                                              <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="den1" min="-2" pref="29" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="MesiacLabel1" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="DenLabel1" min="-2" max="-2" attributes="0"/>
-                                                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                              <Component id="ObsahLabel1" min="-2" max="-2" attributes="0"/>
-                                                          </Group>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="DlzkaTextField1" min="-2" pref="106" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="TrailerLabel1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="TrailerTextField1" min="-2" pref="185" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jScrollPane13" min="-2" pref="287" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                              <Component id="ScenaristaLabel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="NazovLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="HodnotenieLabel2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="StatLabel1" min="-2" pref="39" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane10" min="-2" pref="173" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ZanreLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="HerciLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ReziserLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jScrollPane15" min="-2" pref="173" max="-2" attributes="0"/>
-                                                  <Component id="jScrollPane14" min="-2" pref="173" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="HerciLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ReziserTextField1" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                                          <Component id="RezZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ScenaristaTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ScenZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="ZmazZanerButton1" max="32767" attributes="0"/>
-                                      <Component id="ZmazHercaButton1" max="32767" attributes="0"/>
-                                      <Component id="PridajZanerButton1" max="32767" attributes="0"/>
-                                      <Component id="PridajStatButton1" max="32767" attributes="0"/>
-                                      <Component id="PridajReziseraButton1" max="32767" attributes="0"/>
-                                      <Component id="ZmazReziseraButton1" max="32767" attributes="0"/>
-                                      <Component id="PridajScenaristuButton1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="ZmazStatButton1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="PridajHercaButton1" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="ZmazScenaristuButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                              <Component id="jScrollPane15" min="-2" pref="173" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ScenaristaTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <Component id="ScenZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ZmazScenaristuButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PremieraLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlzkaLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="RokLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+                              <Component id="MesiacLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                              <Component id="DenLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="rokTextField1" min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="mesiac1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="den1" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="DlzkaTextField1" min="-2" pref="106" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                      <Component id="ObsahLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="jScrollPane13" min="-2" pref="287" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="RecenziaLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                      <Component id="RecenziaTextField1" min="-2" pref="185" max="-2" attributes="0"/>
+                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
+                      <Component id="TrailerLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Component id="TrailerTextField1" min="-2" pref="185" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="387" pref="387" max="-2" attributes="0"/>
+                      <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                      <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NazovLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NazovTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="HodnotenieLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="HodnotenieTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="NazovTextField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="HodnotenieTextField1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="HerciLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane8" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="PridajHercaButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane9" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ZanreLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="NazovZanruLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="PridajZanerButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="ZanerTextField1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="ZmazZanerButton1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="PridajStatButton1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="ZmazStatButton1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="StatyTextField1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jScrollPane10" min="-2" pref="92" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="StatLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NazovLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="HodnotenieLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                      </Group>
+                      <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="HerciLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Component id="MenoHercaTextField" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="HercovZivotopisTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ZmazHercaButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="HercovZivotopisTextField1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="PridajHercaButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                              <Component id="ZmazHercaButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane8" min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jScrollPane14" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="ReziserLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane9" min="-2" pref="93" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                              <Component id="NazovZanruLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <Component id="ZanerTextField1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="PridajZanerButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
+                              <Component id="ZmazZanerButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="StatLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <Component id="StatyTextField1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="PridajStatButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                              <Component id="ZmazStatButton1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane14" min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PridajReziseraButton1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ReziserLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Component id="HerciLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                                       <Component id="ReziserTextField1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="RezZivTextField1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="PridajReziseraButton1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                                      <Component id="ZmazReziseraButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="RezZivTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ZmazReziseraButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="ScenaristaLabel2" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane15" min="-2" pref="90" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ScenaristaTextField1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ScenZivTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ZmazScenaristuButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Component id="ScenaristaTextField1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+                              <Component id="ScenZivTextField1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
+                              <Component id="ZmazScenaristuButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" pref="13" max="32767" attributes="0"/>
+                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="RokLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="MesiacLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DenLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ObsahLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="PremieraLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rokTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="mesiac1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="den1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="DlzkaLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DlzkaTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                              <Component id="PremieraLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
+                              <Component id="DlzkaLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane13" alignment="1" min="-2" pref="81" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RokLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="MesiacLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="DenLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rokTextField1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mesiac1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="den1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                              <Component id="DlzkaTextField1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="ObsahLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane13" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="RecenziaLabel1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="RecenziaTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="TrailerLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="TrailerTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RecenziaTextField1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                              <Component id="TrailerLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="TrailerTextField1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="PridajFilmButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="StornoButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

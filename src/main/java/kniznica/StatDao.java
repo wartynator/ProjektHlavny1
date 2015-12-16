@@ -10,4 +10,5 @@ public interface StatDao {
 
     public List<Stat> dajVsetkych();
     public List<Stat> dajVsetkychZID(String id);
+     public Stat podlaID(int id);
 }

@@ -21,7 +21,7 @@ public class SQLReziser implements ReziserDao{
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -45,12 +45,13 @@ public class SQLReziser implements ReziserDao{
         String sql = "DELETE FROM reziser WHERE id = ?";
         jdbcTemplate.update(sql, reziser.getId());
     }
-    
+    @Override
    public List<Reziser> dajVsetkychZID(String id) {
         String sql = "SELECT * FROM reziser WHERE id = "+id;
         BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);
         return jdbcTemplate.query(sql, mapper);
     }
+   @Override
    public Reziser podlaID(int id){
         String sql = "SELECT * FROM reziser where id = "+id;
         BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);

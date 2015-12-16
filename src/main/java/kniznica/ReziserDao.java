@@ -18,4 +18,6 @@ public interface ReziserDao {
 
     public List<Reziser> dajVsetkych();
     public List<Reziser> dajVsetkychZID(String id);
+    public Reziser podlaID(int id);
+    
 }

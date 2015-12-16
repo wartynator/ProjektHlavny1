@@ -42,12 +42,6 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>sk.upjs.ics.paz1c</groupId>
-            <artifactId>mp3library</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

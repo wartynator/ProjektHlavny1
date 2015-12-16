@@ -18,4 +18,10 @@ public interface FilmDao {
     public List<Film> dajTop10();
     
     public List<Film> dajNajnov10();
+    
+    public List<Film> dajFilmyZanre(String zaner);
+    
+    public Film podlaID(int id);
+    
+    public List<Film> dajVsetkychZID(String id);
 }

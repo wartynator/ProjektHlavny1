@@ -5,9 +5,12 @@
  */
 package okno;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kniznica.*;
 
 
@@ -27,6 +30,8 @@ public class menuOkno extends javax.swing.JFrame {
         initComponents();
         refreshFilmy();
         refreshZanre();
+        
+        
             }
 
     /**
@@ -49,8 +54,13 @@ public class menuOkno extends javax.swing.JFrame {
         pridajFilmButton = new javax.swing.JButton();
         HladajButton = new javax.swing.JButton();
         ZanreComboBox = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 255, 102));
+        setPreferredSize(new java.awt.Dimension(690, 430));
+        getContentPane().setLayout(null);
 
         TOP10List.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -64,6 +74,9 @@ public class menuOkno extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TOP10List);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(385, 36, 137, 340);
+
         Najnovsich10List.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -71,9 +84,16 @@ public class menuOkno extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Najnovsich10List);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(540, 36, 125, 340);
+
         jLabel1.setText("TOP 10");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(385, 16, 35, 14);
 
         jLabel2.setText("Najnovsich 10");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(540, 16, 67, 14);
 
         FilmyList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -87,12 +107,17 @@ public class menuOkno extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(FilmyList);
 
+        getContentPane().add(jScrollPane4);
+        jScrollPane4.setBounds(210, 36, 157, 340);
+
         pridajFilmButton.setText("pridaj film");
         pridajFilmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pridajFilmButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(pridajFilmButton);
+        pridajFilmButton.setBounds(10, 36, 130, 23);
 
         HladajButton.setText("Hladaj");
         HladajButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,51 +125,19 @@ public class menuOkno extends javax.swing.JFrame {
                 HladajButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(HladajButton);
+        HladajButton.setBounds(10, 90, 80, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pridajFilmButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(HladajButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ZanreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pridajFilmButton)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(HladajButton)
-                            .addComponent(ZanreComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
+        getContentPane().add(ZanreComboBox);
+        ZanreComboBox.setBounds(100, 90, 69, 20);
+
+        jLabel4.setText("Filmy:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(210, 10, 28, 14);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matúš\\Desktop\\ft.jpg")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 660, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -152,7 +145,12 @@ public class menuOkno extends javax.swing.JFrame {
     private void FilmyListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FilmyListMouseClicked
         if(evt.getClickCount() == 2){
         Film film = (Film) FilmyList.getSelectedValue();
-        FilmInfoForm filmInfo = new FilmInfoForm(this,true,film);
+        FilmInfoForm filmInfo = null;
+            try {
+                filmInfo = new FilmInfoForm(this,true,film);
+            } catch (IOException ex) {
+                Logger.getLogger(menuOkno.class.getName()).log(Level.SEVERE, null, ex);
+            }
         filmInfo.setVisible(true);
         }
     }//GEN-LAST:event_FilmyListMouseClicked
@@ -164,15 +162,24 @@ public class menuOkno extends javax.swing.JFrame {
     }//GEN-LAST:event_pridajFilmButtonActionPerformed
 
     private void HladajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HladajButtonActionPerformed
+        if(ZanreComboBox.getSelectedItem() == "all"){refreshFilmy();}
         Zaner zaner = (Zaner) ZanreComboBox.getSelectedItem();
         String zanerStr= zaner.toString();
+        List<Film> filmyZanre = FilmDao.dajFilmyZanre(zanerStr);
+        FilmyList.setListData(filmyZanre.toArray());
+        
         
     }//GEN-LAST:event_HladajButtonActionPerformed
 
     private void TOP10ListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TOP10ListMouseClicked
        if(evt.getClickCount() == 2){
         Film film = (Film) TOP10List.getSelectedValue();
-        FilmInfoForm filmInfo = new FilmInfoForm(this,true,film);
+        FilmInfoForm filmInfo = null;
+           try {
+               filmInfo = new FilmInfoForm(this,true,film);
+           } catch (IOException ex) {
+               Logger.getLogger(menuOkno.class.getName()).log(Level.SEVERE, null, ex);
+           }
         filmInfo.setVisible(true);
     }//GEN-LAST:event_TOP10ListMouseClicked
     }
@@ -229,6 +236,8 @@ public class menuOkno extends javax.swing.JFrame {
     private javax.swing.JComboBox ZanreComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -250,6 +259,8 @@ public class menuOkno extends javax.swing.JFrame {
         for (Zaner zaner : zanre) {
             ZanreComboBox.addItem(zaner);
         }
+        String all = "all";
+        ZanreComboBox.addItem(all);
         
         
     }

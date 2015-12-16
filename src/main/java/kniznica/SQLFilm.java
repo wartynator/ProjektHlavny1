@@ -19,7 +19,7 @@ public class SQLFilm implements FilmDao {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -42,13 +42,13 @@ public class SQLFilm implements FilmDao {
     public void odstranit(Film film) {
         String sql = "DELETE FROM filmy WHERE id = ?";
         jdbcTemplate.update(sql, film.getId());}
-    
+    @Override
     public int idecko(){        
     String sql = "select max(id) from filmy";
     int i=jdbcTemplate.queryForInt(sql);
     return i+1;}
 
-    
+    @Override
     public Film podlaID(int id){
         String sql = "SELECT * FROM filmy where id = "+id;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
@@ -62,20 +62,29 @@ public class SQLFilm implements FilmDao {
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);}
     
+    @Override
     public List<Film> dajVsetkychZID(String id) {
         String sql = "SELECT * FROM filmy where id = "+id;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
     }
-    
+    @Override
     public List<Film> dajTop10(){
         String sql = "SELECT * FROM filmy order by hodnotenie desc limit 10";
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        
         return jdbcTemplate.query(sql, mapper);
     }
-    
+    @Override
     public List<Film> dajNajnov10(){
         String sql = "SELECT * FROM filmy order by id desc limit 10";
+        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+
+    @Override
+    public List<Film> dajFilmyZanre(String zaner) {
+     String sql = "select * from filmy where id in (select id from zaner where meno like " + "'"+zaner+"'" + ")";
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
     }

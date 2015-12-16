@@ -41,14 +41,14 @@ public class SQLHerec implements HerecDao {
         String sql = "DELETE FROM herec WHERE id = ?";
         jdbcTemplate.update(sql, herec.getId());
     }
-    
+    @Override
    public Herec podlaID(int id){
         String sql = "SELECT * FROM herec where id = "+id;
         BeanPropertyRowMapper<Herec> mapper = BeanPropertyRowMapper.newInstance(Herec.class);
         List<Herec>herci= jdbcTemplate.query(sql, mapper);
         Herec vysledny = herci.get(0);
         return vysledny;}
-   
+   @Override
     public List<Herec> dajVsetkychZID(String id) {
         String sql = "SELECT * FROM herec where id = "+id;
         BeanPropertyRowMapper<Herec> mapper = BeanPropertyRowMapper.newInstance(Herec.class);

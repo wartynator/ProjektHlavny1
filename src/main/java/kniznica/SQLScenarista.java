@@ -21,7 +21,7 @@ public class SQLScenarista implements ScenaristaDao{
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("Rastislav1");
+        dataSource.setPassword("WaR753321");
         
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -45,13 +45,13 @@ public class SQLScenarista implements ScenaristaDao{
         String sql = "DELETE FROM scenarista WHERE id = ?";
         jdbcTemplate.update(sql, scenarista.getId());
     }
-    
+    @Override
      public List<Scenarista> dajVsetkychZID(String id) {
         String sql = "SELECT * FROM scenarista WHERE id = "+id;
         BeanPropertyRowMapper<Scenarista> mapper = BeanPropertyRowMapper.newInstance(Scenarista.class);
         return jdbcTemplate.query(sql, mapper);
     }
- 
+ @Override
      public Scenarista podlaID(int id){
         String sql = "SELECT * FROM scenarista where id = "+id;
         BeanPropertyRowMapper<Scenarista> mapper = BeanPropertyRowMapper.newInstance(Scenarista.class);
