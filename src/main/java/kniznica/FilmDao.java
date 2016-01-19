@@ -10,7 +10,7 @@ public interface FilmDao {
 
     public List<Film> dajVsetkych();
 
-    public int idecko();
+    public int idecko(String meno);
 
     public List<Film> dajVsetkychZaner(String zaner);
 

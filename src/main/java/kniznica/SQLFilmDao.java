@@ -45,8 +45,8 @@ public class SQLFilmDao implements FilmDao {
     }
 
     @Override
-    public int idecko() {
-        String sql = "select max(id) from filmy";
+    public int idecko(String meno) {
+        String sql = "select id from filmy where nazov like " + "'" + meno + "'";
         int i = jdbcTemplate.queryForInt(sql);
         return i;
     }
