@@ -39,6 +39,8 @@ public class Reziser {
     public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
-    public String toString(){
-    return meno;}
+
+    public String toString() {
+        return meno;
+    }
 }

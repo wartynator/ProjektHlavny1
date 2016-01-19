@@ -10,8 +10,10 @@ package kniznica;
  * @author Matúš
  */
 public enum HerecDaoFactory {
+
     INSTANCE;
-    public HerecDao getHerecDao(){
-    return new SQLHerec();
+
+    public HerecDao getHerecDao() {
+        return new SQLHerecDao();
     }
 }

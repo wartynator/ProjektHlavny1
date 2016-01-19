@@ -12,6 +12,7 @@ import java.net.URL;
  * @author Rastislav
  */
 public class Scenarista {
+
     private int id;
 
     public int getId() {
@@ -39,6 +40,8 @@ public class Scenarista {
     public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
-    public String toString(){
-    return this.meno;}
+
+    public String toString() {
+        return this.meno;
+    }
 }

@@ -17,15 +17,14 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
 /**
  *
  * @author Rastislav
  */
-public class SQLFilmTest {
-    private final SQLFilm sqlFilm = new SQLFilm();
+public class SQLFilmDaoTest {
 
-   
+    private final SQLFilmDao sqlFilm = new SQLFilmDao();
+
     @BeforeClass
     public static void setUp() {
         System.setProperty("junit", "true");
@@ -33,15 +32,15 @@ public class SQLFilmTest {
 
     @Test
     public void insertTest() throws ParseException, MalformedURLException {
-       
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
         Film pridanyFilm = new Film();
         pridanyFilm.setNazov("Skusobny");
         pridanyFilm.setDlzka(10);
         pridanyFilm.setHodnotenie(5);
         pridanyFilm.setId(sqlFilm.idecko());
         pridanyFilm.setObsah("tasggs");
-        Date datum = sdf.parse(1999+"-"+12+"-"+12);
+        Date datum = sdf.parse(1999 + "-" + 12 + "-" + 12);
         pridanyFilm.setPremiera(datum);
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridanyFilm.setRecenzia(recenzia);
@@ -51,14 +50,12 @@ public class SQLFilmTest {
         assertNotNull(pridanyFilm.getId());
         Film kontrolnyFilm = sqlFilm.podlaID(pridanyFilm.getId());
         assertNotNull(kontrolnyFilm);
-       
-    }
 
-    
+    }
 
     @Test
     public void deleteTest() throws ParseException, MalformedURLException {
-        
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
         Film pridanyFilm = new Film();
         pridanyFilm.setNazov("Skusobny");
@@ -66,7 +63,7 @@ public class SQLFilmTest {
         pridanyFilm.setHodnotenie(5);
         pridanyFilm.setId(sqlFilm.idecko());
         pridanyFilm.setObsah("tasggs");
-        Date datum = sdf.parse(1999+"-"+12+"-"+12);
+        Date datum = sdf.parse(1999 + "-" + 12 + "-" + 12);
         pridanyFilm.setPremiera(datum);
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridanyFilm.setRecenzia(recenzia);
@@ -78,12 +75,10 @@ public class SQLFilmTest {
 
     }
 
-   
     @Test
     public void findAllTest() {
         List<Film> filmy = sqlFilm.dajVsetkych();
         assertNotNull(filmy);
     }
 
-  
 }

@@ -1,9 +1,9 @@
-
 package kniznica;
 
 public class Stat {
-private int id;
-private String nazov;
+
+    private int id;
+    private String nazov;
 
     public int getId() {
         return id;
@@ -19,12 +19,11 @@ private String nazov;
 
     public void setNazov(String nazov) {
         this.nazov = nazov;
- 
+
     }
-    
-    
-    public String toString(){
-    
-    return this.nazov;
+
+    public String toString() {
+
+        return this.nazov;
     }
 }

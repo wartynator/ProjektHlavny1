@@ -10,13 +10,12 @@ package kniznica;
  * @author Matúš
  */
 public enum FilmDaoFactory {
+
     INSTANCE;
-    
-    public FilmDao getFilmDao(){
-    
-        
-        
-            return new SQLFilm();
-        
+
+    public FilmDao getFilmDao() {
+
+        return new SQLFilmDao();
+
     }
 }

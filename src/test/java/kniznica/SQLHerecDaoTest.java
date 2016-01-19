@@ -16,50 +16,47 @@ import static org.junit.Assert.*;
  *
  * @author Rastislav
  */
-public class SQLHerecTest {
-    
-    private final SQLHerec sqlHerec = new SQLHerec();    
-    private final SQLFilm sqlFilm = new SQLFilm();
+public class SQLHerecDaoTest {
+
+    private final SQLHerecDao sqlHerec = new SQLHerecDao();
+    private final SQLFilmDao sqlFilm = new SQLFilmDao();
+
     @BeforeClass
     public static void setUp() {
         System.setProperty("junit", "true");
     }
-    
+
     @Test
     public void pridatTest() throws MalformedURLException {
-        Herec pridanyHerec= new Herec();
-        pridanyHerec.setId(sqlFilm.idecko());
-        pridanyHerec.setMeno("Troy McLoor");
-        URL recenzia = new URL("https://sk.wikipedia.org/");
-        pridanyHerec.setWiki(recenzia);
-        sqlHerec.pridat(pridanyHerec);
-        assertNotNull(pridanyHerec.getId());       
-        Herec kontrolny = sqlHerec.podlaID(pridanyHerec.getId());
-        assertNotNull(kontrolny);
-       
-    }
-    
-   
-    @Test
-    public void vymazTest() throws MalformedURLException {
-       Herec pridanyHerec= new Herec();
+        Herec pridanyHerec = new Herec();
         pridanyHerec.setId(sqlFilm.idecko());
         pridanyHerec.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridanyHerec.setWiki(recenzia);
         sqlHerec.pridat(pridanyHerec);
         assertNotNull(pridanyHerec.getId());
-       sqlHerec.odstranit(pridanyHerec);
-            
-            }
-    
-    
-    
+        Herec kontrolny = sqlHerec.podlaID(pridanyHerec.getId());
+        assertNotNull(kontrolny);
+
+    }
+
+    @Test
+    public void vymazTest() throws MalformedURLException {
+        Herec pridanyHerec = new Herec();
+        pridanyHerec.setId(sqlFilm.idecko());
+        pridanyHerec.setMeno("Troy McLoor");
+        URL recenzia = new URL("https://sk.wikipedia.org/");
+        pridanyHerec.setWiki(recenzia);
+        sqlHerec.pridat(pridanyHerec);
+        assertNotNull(pridanyHerec.getId());
+        sqlHerec.odstranit(pridanyHerec);
+
+    }
+
     @Test
     public void findAllTest() {
         List<Herec> herci = sqlHerec.dajVsetkych();
         assertNotNull(herci);
     }
-    
-    
+
 }

@@ -15,15 +15,16 @@ import static org.junit.Assert.*;
  *
  * @author Rastislav
  */
-public class SQLStatTest {
-    private final SQLFilm sqlFilm = new SQLFilm();
-   private final SQLStat sqlStat = new SQLStat();    
-    
+public class SQLStatDaoTest {
+
+    private final SQLFilmDao sqlFilm = new SQLFilmDao();
+    private final SQLStatDao sqlStat = new SQLStatDao();
+
     @BeforeClass
     public static void setUp() {
         System.setProperty("junit", "true");
     }
-    
+
     @Test
     public void pridatTest() throws MalformedURLException {
         Stat pridany = new Stat();
@@ -33,23 +34,20 @@ public class SQLStatTest {
         assertNotNull(pridany.getId());
         Stat kontrolny = sqlStat.podlaID(pridany.getId());
         assertNotNull(kontrolny);
-       
+
     }
-    
-   
+
     @Test
     public void vymazTest() throws MalformedURLException {
-       Stat pridany = new Stat();
-    pridany.setId(sqlFilm.idecko());
+        Stat pridany = new Stat();
+        pridany.setId(sqlFilm.idecko());
         pridany.setNazov("USA");
         sqlStat.pridat(pridany);
         assertNotNull(pridany.getId());
         sqlStat.odstranit(pridany);
-             
-            }
-    
-    
-    
+
+    }
+
     @Test
     public void findAllTest() {
         List<Stat> staty = sqlStat.dajVsetkych();

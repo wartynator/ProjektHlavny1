@@ -1,4 +1,3 @@
-
 package kniznica;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -6,19 +5,18 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+public class SQLStatDao implements StatDao {
 
-public class SQLStat implements StatDao {
     private JdbcTemplate jdbcTemplate;
-    
-    public SQLStat() {
+
+    public SQLStatDao() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("WaR753321");
-        
+        dataSource.setPassword("Rastislav1");
+
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-    
 
     @Override
     public void pridat(Stat stat) {
@@ -29,7 +27,7 @@ public class SQLStat implements StatDao {
     @Override
     public List<Stat> dajVsetkych() {
         String sql = "SELECT * FROM stat";
-        
+
         BeanPropertyRowMapper<Stat> mapper = BeanPropertyRowMapper.newInstance(Stat.class);
         return jdbcTemplate.query(sql, mapper);
     }
@@ -39,17 +37,20 @@ public class SQLStat implements StatDao {
         String sql = "DELETE FROM stat WHERE id = ?";
         jdbcTemplate.update(sql, stat.getId());
     }
+
     @Override
-     public List<Stat> dajVsetkychZID(String id) {
-        String sql = "SELECT * FROM stat where id = "+id;
+    public List<Stat> dajVsetkychZID(String id) {
+        String sql = "SELECT * FROM stat where id = " + id;
         BeanPropertyRowMapper<Stat> mapper = BeanPropertyRowMapper.newInstance(Stat.class);
         return jdbcTemplate.query(sql, mapper);
     }
-     @Override
-    public Stat podlaID(int id){
-        String sql = "SELECT * FROM stat where id = "+id;
+
+    @Override
+    public Stat podlaID(int id) {
+        String sql = "SELECT * FROM stat where id = " + id;
         BeanPropertyRowMapper<Stat> mapper = BeanPropertyRowMapper.newInstance(Stat.class);
-        List<Stat>staty= jdbcTemplate.query(sql, mapper);
+        List<Stat> staty = jdbcTemplate.query(sql, mapper);
         Stat vysledny = staty.get(0);
-        return vysledny;}
+        return vysledny;
+    }
 }

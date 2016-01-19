@@ -14,48 +14,51 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *
  * @author Rastislav
  */
-public class SQLReziser implements ReziserDao{
-     private JdbcTemplate jdbcTemplate;
-    
-    public SQLReziser() {
+public class SQLReziserDao implements ReziserDao {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public SQLReziserDao() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("WaR753321");
-        
+        dataSource.setPassword("Rastislav1");
+
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-    
 
     @Override
     public void pridat(Reziser reziser) {
         String sql = "INSERT INTO reziser VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql,reziser.getId(),  reziser.getMeno(),reziser.getWiki().toString());
+        jdbcTemplate.update(sql, reziser.getId(), reziser.getMeno(), reziser.getWiki().toString());
     }
-    
+
     @Override
     public List<Reziser> dajVsetkych() {
         String sql = "SELECT * FROM reziser";
         BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);
         return jdbcTemplate.query(sql, mapper);
     }
-    
+
     @Override
     public void odstranit(Reziser reziser) {
         String sql = "DELETE FROM reziser WHERE id = ?";
         jdbcTemplate.update(sql, reziser.getId());
     }
+
     @Override
-   public List<Reziser> dajVsetkychZID(String id) {
-        String sql = "SELECT * FROM reziser WHERE id = "+id;
+    public List<Reziser> dajVsetkychZID(String id) {
+        String sql = "SELECT * FROM reziser WHERE id = " + id;
         BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);
         return jdbcTemplate.query(sql, mapper);
     }
-   @Override
-   public Reziser podlaID(int id){
-        String sql = "SELECT * FROM reziser where id = "+id;
+
+    @Override
+    public Reziser podlaID(int id) {
+        String sql = "SELECT * FROM reziser where id = " + id;
         BeanPropertyRowMapper<Reziser> mapper = BeanPropertyRowMapper.newInstance(Reziser.class);
-        List<Reziser>reziseri= jdbcTemplate.query(sql, mapper);
+        List<Reziser> reziseri = jdbcTemplate.query(sql, mapper);
         Reziser vysledny = reziseri.get(0);
-        return vysledny;}
+        return vysledny;
+    }
 }

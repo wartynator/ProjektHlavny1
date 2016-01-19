@@ -16,15 +16,16 @@ import static org.junit.Assert.*;
  *
  * @author Rastislav
  */
-public class SQLScenaristaTest {
-    
-    private final SQLScenarista sqlScenarista = new SQLScenarista();    
-    private final SQLFilm sqlFilm = new SQLFilm();
+public class SQLScenaristaDaoTest {
+
+    private final SQLScenaristaDao sqlScenarista = new SQLScenaristaDao();
+    private final SQLFilmDao sqlFilm = new SQLFilmDao();
+
     @BeforeClass
     public static void setUp() {
         System.setProperty("junit", "true");
     }
-    
+
     @Test
     public void pridatTest() throws MalformedURLException {
         Scenarista pridany = new Scenarista();
@@ -35,13 +36,12 @@ public class SQLScenaristaTest {
         sqlScenarista.pridat(pridany);
         Scenarista kontrolny = sqlScenarista.podlaID(pridany.getId());
         assertNotNull(kontrolny);
-       
+
     }
-    
-   
+
     @Test
     public void vymazTest() throws MalformedURLException {
-       Scenarista pridany = new Scenarista();
+        Scenarista pridany = new Scenarista();
         pridany.setId(sqlFilm.idecko());
         pridany.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
@@ -49,12 +49,9 @@ public class SQLScenaristaTest {
         sqlScenarista.pridat(pridany);
         assertNotNull(pridany.getId());
         sqlScenarista.odstranit(pridany);
-      
-       
-            }
-    
-    
-    
+
+    }
+
     @Test
     public void findAllTest() {
         List<Scenarista> scenaristi = sqlScenarista.dajVsetkych();

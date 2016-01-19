@@ -12,23 +12,23 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class SQLFilm implements FilmDao {
+public class SQLFilmDao implements FilmDao {
+
     private JdbcTemplate jdbcTemplate;
-    
-    public SQLFilm() {
+
+    public SQLFilmDao() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("WaR753321");
-        
+        dataSource.setPassword("Rastislav1");
+
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-    
 
     @Override
     public void pridat(Film film) {
         String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(sql, film.getId(), film.getHodnotenie(),film.getNazov(),film.getDlzka(),film.getPremiera(),film.getObsah(),film.getTrailer().toString(),film.getRecenzia().toString());
+        jdbcTemplate.update(sql, null, film.getHodnotenie(), film.getNazov(), film.getDlzka(), film.getPremiera(), film.getObsah(), film.getTrailer().toString(), film.getRecenzia().toString());
     }
 
     @Override
@@ -41,42 +41,49 @@ public class SQLFilm implements FilmDao {
     @Override
     public void odstranit(Film film) {
         String sql = "DELETE FROM filmy WHERE id = ?";
-        jdbcTemplate.update(sql, film.getId());}
-    @Override
-    public int idecko(){        
-    String sql = "select max(id) from filmy";
-    int i=jdbcTemplate.queryForInt(sql);
-    return i+1;}
+        jdbcTemplate.update(sql, film.getId());
+    }
 
     @Override
-    public Film podlaID(int id){
-        String sql = "SELECT * FROM filmy where id = "+id;
+    public int idecko() {
+        String sql = "select max(id) from filmy";
+        int i = jdbcTemplate.queryForInt(sql);
+        return i;
+    }
+
+    @Override
+    public Film podlaID(int id) {
+        String sql = "SELECT * FROM filmy where id = " + id;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
-        List<Film>filmy= jdbcTemplate.query(sql, mapper);
+        List<Film> filmy = jdbcTemplate.query(sql, mapper);
         Film vysledny = filmy.get(0);
-        return vysledny;}
-    
-      @Override
+        return vysledny;
+    }
+
+    @Override
     public List<Film> dajVsetkychZaner(String zaner) {
         String sql = "SELECT * FROM filmy WHERE zaner = " + zaner;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
-        return jdbcTemplate.query(sql, mapper);}
-    
+        return jdbcTemplate.query(sql, mapper);
+    }
+
     @Override
     public List<Film> dajVsetkychZID(String id) {
-        String sql = "SELECT * FROM filmy where id = "+id;
+        String sql = "SELECT * FROM filmy where id = " + id;
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
     }
+
     @Override
-    public List<Film> dajTop10(){
+    public List<Film> dajTop10() {
         String sql = "SELECT * FROM filmy order by hodnotenie desc limit 10";
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
-        
+
         return jdbcTemplate.query(sql, mapper);
     }
+
     @Override
-    public List<Film> dajNajnov10(){
+    public List<Film> dajNajnov10() {
         String sql = "SELECT * FROM filmy order by id desc limit 10";
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
@@ -84,11 +91,10 @@ public class SQLFilm implements FilmDao {
 
     @Override
     public List<Film> dajFilmyZanre(String zaner) {
-     String sql = "select * from filmy where id in (select id from zaner where meno like " + "'"+zaner+"'" + ")";
+        String sql = "select f1.* from filmy f1 join zaner z1 on f1.id = z1.id where z1.meno like " + "'" + zaner + "'";
+
         BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
         return jdbcTemplate.query(sql, mapper);
     }
 
 }
-
-

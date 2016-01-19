@@ -12,26 +12,25 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import kniznica.*;
 
-
 /**
  *
  * @author Rastislav
  */
 public class menuOkno extends javax.swing.JFrame {
+
     private FilmDao FilmDao = FilmDaoFactory.INSTANCE.getFilmDao();
     private ZanerDao ZanreDao = ZanerDaoFactory.INSTANCE.getZanerDao();
-   
+
     /**
      * Creates new form menuOkno
      */
     public menuOkno(java.awt.Frame parent, boolean modal) {
-        
+
         initComponents();
         refreshFilmy();
         refreshZanre();
-        
-        
-            }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,8 +132,6 @@ public class menuOkno extends javax.swing.JFrame {
         jLabel4.setText("Filmy:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(210, 10, 40, 14);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matúš\\Documents\\NetBeansProjects\\projektHlavny\\ft.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 0, 660, 390);
 
@@ -142,49 +139,48 @@ public class menuOkno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FilmyListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FilmyListMouseClicked
-        if(evt.getClickCount() == 2){
-        Film film = (Film) FilmyList.getSelectedValue();
-        FilmInfoForm filmInfo = null;
+        if (evt.getClickCount() == 2) {
+            Film film = (Film) FilmyList.getSelectedValue();
+            FilmInfoForm filmInfo = null;
             try {
-                filmInfo = new FilmInfoForm(this,true,film);
+                filmInfo = new FilmInfoForm(this, true, film);
             } catch (IOException ex) {
                 Logger.getLogger(menuOkno.class.getName()).log(Level.SEVERE, null, ex);
             }
-        filmInfo.setVisible(true);
+            filmInfo.setVisible(true);
         }
     }//GEN-LAST:event_FilmyListMouseClicked
 
     private void pridajFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pridajFilmButtonActionPerformed
-      PridatFilmFormCisto pridaj = new PridatFilmFormCisto(this, true);
-      pridaj.setVisible(true);
-      refreshFilmy();
+        PridatFilmFormCisto pridaj = new PridatFilmFormCisto(this, true);
+        pridaj.setVisible(true);
+        refreshFilmy();
     }//GEN-LAST:event_pridajFilmButtonActionPerformed
 
     private void HladajButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HladajButtonActionPerformed
-        if(ZanreComboBox.getSelectedItem() == "all"){refreshFilmy();}
+        if (ZanreComboBox.getSelectedItem() == "all") {
+            refreshFilmy();
+        }
         Zaner zaner = (Zaner) ZanreComboBox.getSelectedItem();
-        String zanerStr= zaner.toString();
+        String zanerStr = zaner.toString();
         List<Film> filmyZanre = FilmDao.dajFilmyZanre(zanerStr);
         FilmyList.setListData(filmyZanre.toArray());
-        
-        
+
     }//GEN-LAST:event_HladajButtonActionPerformed
 
     private void TOP10ListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TOP10ListMouseClicked
-       if(evt.getClickCount() == 2){
-        Film film = (Film) TOP10List.getSelectedValue();
-        FilmInfoForm filmInfo = null;
-           try {
-               filmInfo = new FilmInfoForm(this,true,film);
-           } catch (IOException ex) {
-               Logger.getLogger(menuOkno.class.getName()).log(Level.SEVERE, null, ex);
-           }
-        filmInfo.setVisible(true);
+        if (evt.getClickCount() == 2) {
+            Film film = (Film) TOP10List.getSelectedValue();
+            FilmInfoForm filmInfo = null;
+            try {
+                filmInfo = new FilmInfoForm(this, true, film);
+            } catch (IOException ex) {
+                Logger.getLogger(menuOkno.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            filmInfo.setVisible(true);
     }//GEN-LAST:event_TOP10ListMouseClicked
     }
-    
-       
-    
+
     /**
      * @param args the command line arguments
      */
@@ -246,7 +242,7 @@ public class menuOkno extends javax.swing.JFrame {
     private void refreshFilmy() {
         List<Film> filmy = FilmDao.dajVsetkych();
         FilmyList.setListData(filmy.toArray());
-        List<Film> top10= FilmDao.dajTop10();
+        List<Film> top10 = FilmDao.dajTop10();
         TOP10List.setListData(top10.toArray());
         List<Film> najnov10 = FilmDao.dajNajnov10();
         Najnovsich10List.setListData(najnov10.toArray());
@@ -254,23 +250,13 @@ public class menuOkno extends javax.swing.JFrame {
 
     private void refreshZanre() {
         List<Zaner> zanre = ZanreDao.dajVsetkych();
-        Set<Zaner> zanreSet= new HashSet<Zaner>();
+        Set<Zaner> zanreSet = new HashSet<Zaner>();
         for (Zaner zaner : zanre) {
             ZanreComboBox.addItem(zaner);
         }
         String all = "all";
         ZanreComboBox.addItem(all);
-        
-        
+
     }
-    
 
-   
-
-    
-    
-    
-    
-    
-    
 }

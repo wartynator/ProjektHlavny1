@@ -1,4 +1,3 @@
-
 package kniznica;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
@@ -6,18 +5,18 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class SQLZaner implements ZanerDao {
+public class SQLZanerDao implements ZanerDao {
+
     private JdbcTemplate jdbcTemplate;
-    
-    public SQLZaner() {
+
+    public SQLZanerDao() {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost/databaza_filmov");
         dataSource.setUser("root");
-        dataSource.setPassword("WaR753321");
-        
+        dataSource.setPassword("Rastislav1");
+
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-    
 
     @Override
     public void pridat(Zaner zaner) {
@@ -28,7 +27,7 @@ public class SQLZaner implements ZanerDao {
     @Override
     public List<Zaner> dajVsetkych() {
         String sql = "SELECT DISTINCT meno FROM zaner";
-        
+
         BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
         return jdbcTemplate.query(sql, mapper);
     }
@@ -38,18 +37,20 @@ public class SQLZaner implements ZanerDao {
         String sql = "DELETE FROM zaner WHERE id = ?";
         jdbcTemplate.update(sql, zaner.getId());
     }
+
     @Override
     public List<Zaner> dajVsetkychZID(String id) {
-        String sql = "SELECT * FROM zaner where id = "+id;
+        String sql = "SELECT * FROM zaner where id = " + id;
         BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
         return jdbcTemplate.query(sql, mapper);
     }
-    @Override
-   public Zaner podlaID(int id){
-        String sql = "SELECT * FROM zaner where id = "+id;
-        BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
-        List<Zaner>zanre= jdbcTemplate.query(sql, mapper);
-        Zaner vysledny = zanre.get(0);
-        return vysledny;}
-}
 
+    @Override
+    public Zaner podlaID(int id) {
+        String sql = "SELECT * FROM zaner where id = " + id;
+        BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
+        List<Zaner> zanre = jdbcTemplate.query(sql, mapper);
+        Zaner vysledny = zanre.get(0);
+        return vysledny;
+    }
+}

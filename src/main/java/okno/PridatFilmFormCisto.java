@@ -5,7 +5,6 @@
  */
 package okno;
 
-
 import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
@@ -27,33 +26,32 @@ import kniznica.*;
  * @author Matúš
  */
 public class PridatFilmFormCisto extends javax.swing.JFrame {
+
     private FilmDao sqlfilm = FilmDaoFactory.INSTANCE.getFilmDao();
     private Film film;
-    private Set<Herec>herci= new HashSet<>();
+    private Set<Herec> herci = new HashSet<>();
     private Set<Stat> staty = new HashSet<>();
     private Set<Zaner> zanre = new HashSet<>();
     private Set<Reziser> reziseri = new HashSet<>();
     private Set<Scenarista> scenaristi = new HashSet<>();
-    private int id= sqlfilm.idecko();
-    
-    
+
     /**
      * Creates new form PridatFilmFormCisto
      */
     public PridatFilmFormCisto(java.awt.Frame parent, boolean modal) {
         initComponents();
-        
+
     }
-    
+
     PridatFilmFormCisto(Frame parent, boolean modal, Film film) {
-      //  super(parent, modal);
+        //  super(parent, modal);
         initComponents();
         refreshHerci();
         refreshZanre();
         setLocationRelativeTo(null);
-        
-        this.film = film;        
-        
+
+        this.film = film;
+
     }
 
     /**
@@ -613,13 +611,10 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PridajFilmButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajFilmButton1ActionPerformed
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+
         Film film = new Film();
-       
-        System.out.println(id);
-        film.setId(id);
-        
+
         int hodnotenie;
         String kont2 = HodnotenieTextField1.getText();
         if (kont2.trim().isEmpty()) {
@@ -627,17 +622,16 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
             return;
         } else {
             hodnotenie = Integer.parseInt(HodnotenieTextField1.getText());
-        }        
+        }
         film.setHodnotenie(hodnotenie);
-        
+
         String nazov = NazovTextField1.getText();
         if (nazov.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste nazov!");
             return;
-        }        
+        }
         film.setNazov(nazov);
-        
-        
+
         int dlzka;
         String kont3 = DlzkaTextField1.getText();
         if (kont3.trim().isEmpty()) {
@@ -645,28 +639,27 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
             return;
         } else {
             dlzka = Integer.parseInt(DlzkaTextField1.getText());
-        }        
+        }
         film.setDlzka(dlzka);
-        
-        
+
         Date datum = null;
         try {
-            datum = sdf.parse(rokTextField1.getText()+"-"+mesiac1.getText()+"-"+den1.getText());
+            datum = sdf.parse(rokTextField1.getText() + "-" + mesiac1.getText() + "-" + den1.getText());
         } catch (ParseException ex) {
             Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (datum == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste premieru!");
             return;
-        }        
+        }
         film.setPremiera(datum);
-        
+
         String obsah = ObsahTextArea1.getText();
         if (obsah.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste obsah!");
             return;
-        }        
-        
+        }
+
         film.setObsah(obsah);
         URL trailer = null;
         try {
@@ -677,9 +670,9 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         if (trailer == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
             return;
-        }        
-        film.setTrailer(trailer);        
-        
+        }
+        film.setTrailer(trailer);
+
         URL recenzia = null;
         try {
             recenzia = new URL(RecenziaTextField1.getText());
@@ -689,11 +682,11 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         if (recenzia == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
             return;
-        }        
+        }
         film.setRecenzia(recenzia);
-        
-        
+
         sqlfilm.pridat(film);
+        int id = sqlfilm.idecko();
         StatDao sqlstat = StatDaoFactory.INSTANCE.getStatDao();
         HerecDao sqlherec = HerecDaoFactory.INSTANCE.getHerecDao();
         ZanerDao sqlzaner = ZanerDaoFactory.INSTANCE.getZanerDao();
@@ -701,55 +694,62 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         ReziserDao sqlreziser = ReziserDaoFactory.INSTANCE.getReziserDao();
         System.out.println(reziseri.toString());
         for (Herec herec : herci) {
+            herec.setId(id);
             sqlherec.pridat(herec);
         }
         for (Stat stat : staty) {
+            stat.setId(id);
             sqlstat.pridat(stat);
         }
         for (Zaner zaner : zanre) {
+            zaner.setId(id);
             sqlzaner.pridat(zaner);
         }
-        for(Scenarista scenarista:scenaristi){
-        sqlscenarista.pridat(scenarista);}
-       
-        for(Reziser reziser : reziseri){
-        sqlreziser.pridat(reziser);}
-        JOptionPane.showMessageDialog(null,"Film bol uspesne pridany");
-         this.setVisible(false);
+        for (Scenarista scenarista : scenaristi) {
+            scenarista.setId(id);
+            sqlscenarista.pridat(scenarista);
+        }
+
+        for (Reziser reziser : reziseri) {
+            reziser.setId(id);
+            sqlreziser.pridat(reziser);
+        }
+        JOptionPane.showMessageDialog(null, "Film bol uspesne pridany");
+        this.setVisible(false);
     }//GEN-LAST:event_PridajFilmButton1ActionPerformed
 
     private void HodnotenieTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HodnotenieTextField1KeyTyped
-         char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }//GEN-LAST:event_HodnotenieTextField1KeyTyped
 
     private void DlzkaTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DlzkaTextField1KeyTyped
-         char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }//GEN-LAST:event_DlzkaTextField1KeyTyped
 
     private void rokTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rokTextField1KeyTyped
-       char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }//GEN-LAST:event_rokTextField1KeyTyped
 
     private void den1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_den1KeyTyped
-         char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }//GEN-LAST:event_den1KeyTyped
 
     private void mesiac1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesiac1KeyTyped
-        char c =evt.getKeyChar();
-        if(!(Character.isDigit(c) || c==KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)){
-        evt.consume();
+        char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
         }
     }//GEN-LAST:event_mesiac1KeyTyped
 
@@ -759,19 +759,18 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
 
     private void StornoButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StornoButton1ActionPerformed
         this.setVisible(false);
-       this.disable();
+        this.disable();
     }//GEN-LAST:event_StornoButton1ActionPerformed
 
     private void PridajZanerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajZanerButton1ActionPerformed
-       Zaner zaner = new Zaner();
-       
+        Zaner zaner = new Zaner();
+
         String menoZanra = ZanerTextField1.getText();
         if (menoZanra.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zaner!");
             return;
-        } 
-        
-        zaner.setId(id);
+        }
+
         zaner.setMeno(menoZanra);
         zanre.add(zaner);
         refreshZanre();
@@ -785,8 +784,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
     }//GEN-LAST:event_ZmazZanerButton1ActionPerformed
 
     private void PridajHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajHercaButton1ActionPerformed
-      Herec herec = new Herec();
-        herec.setId(id);
+        Herec herec = new Herec();
+
         String meno = MenoHercaTextField.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno herca!");
@@ -812,21 +811,20 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
     }//GEN-LAST:event_PridajHercaButton1ActionPerformed
 
     private void ZmazHercaButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZmazHercaButton1ActionPerformed
-       Herec herec = (Herec) HerciList1.getSelectedValue();
+        Herec herec = (Herec) HerciList1.getSelectedValue();
         herci.remove(herec);
         refreshHerci();
     }//GEN-LAST:event_ZmazHercaButton1ActionPerformed
 
     private void PridajStatButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajStatButton1ActionPerformed
-       Stat stat = new Stat();
-      
-      String menoStatu =StatyTextField1.getText();
+        Stat stat = new Stat();
+
+        String menoStatu = StatyTextField1.getText();
         if (menoStatu.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste stat!");
             return;
-        } 
-        
-        stat.setId(id);
+        }
+
         stat.setNazov(menoStatu);
         staty.add(stat);
         refreshStaty();
@@ -842,13 +840,13 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
     private void PridajReziseraButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajReziseraButton1ActionPerformed
         Reziser reziser = new Reziser();
 
-String meno = ReziserTextField1.getText();
+        String meno = ReziserTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno rezisera!");
             return;
-        } 
-reziser.setMeno(meno);
-URL wiki = null;
+        }
+        reziser.setMeno(meno);
+        URL wiki = null;
         try {
             wiki = new URL(RezZivTextField1.getText());
         } catch (MalformedURLException ex) {
@@ -857,9 +855,9 @@ URL wiki = null;
         if (wiki == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
             return;
-        }        
+        }
         reziser.setWiki(wiki);
-        reziser.setId(id);
+
         reziseri.add(reziser);
         refreshReziseri();
         ReziserTextField1.setText("");
@@ -867,21 +865,21 @@ URL wiki = null;
     }//GEN-LAST:event_PridajReziseraButton1ActionPerformed
 
     private void ZmazReziseraButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZmazReziseraButton1ActionPerformed
-Reziser reziser = (Reziser)  ReziserList1.getSelectedValue();
+        Reziser reziser = (Reziser) ReziserList1.getSelectedValue();
         reziseri.remove(reziser);
         refreshReziseri();
     }//GEN-LAST:event_ZmazReziseraButton1ActionPerformed
 
     private void PridajScenaristuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajScenaristuButton1ActionPerformed
-         Scenarista scenarista = new Scenarista();
+        Scenarista scenarista = new Scenarista();
 
-String meno = ScenaristaTextField1.getText();
+        String meno = ScenaristaTextField1.getText();
         if (meno.trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste meno scenaristu!");
             return;
-        } 
-scenarista.setMeno(meno);
-URL wiki = null;
+        }
+        scenarista.setMeno(meno);
+        URL wiki = null;
         try {
             wiki = new URL(ScenZivTextField1.getText());
         } catch (MalformedURLException ex) {
@@ -890,21 +888,19 @@ URL wiki = null;
         if (wiki == null) {
             JOptionPane.showMessageDialog(this, "Nevyplnili ste zivotopis!");
             return;
-        }        
+        }
         scenarista.setWiki(wiki);
-        scenarista.setId(id);
+
         scenaristi.add(scenarista);
         refreshScenaristi();
     }//GEN-LAST:event_PridajScenaristuButton1ActionPerformed
 
     private void ZmazScenaristuButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZmazScenaristuButton1ActionPerformed
-       Scenarista scenarista = (Scenarista) ScenaristaList1.getSelectedValue();
+        Scenarista scenarista = (Scenarista) ScenaristaList1.getSelectedValue();
         scenaristi.remove(scenarista);
         refreshScenaristi();
     }//GEN-LAST:event_ZmazScenaristuButton1ActionPerformed
 
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -1016,15 +1012,15 @@ URL wiki = null;
     // End of variables declaration//GEN-END:variables
 
     private void refreshHerci() {
-         HerciList1.setListData(this.herci.toArray());
+        HerciList1.setListData(this.herci.toArray());
     }
 
     private void refreshStaty() {
-       StatyList1.setListData(this.staty.toArray());
+        StatyList1.setListData(this.staty.toArray());
     }
-    
+
     private void refreshZanre() {
-         ZanreList1.setListData(this.zanre.toArray());
+        ZanreList1.setListData(this.zanre.toArray());
     }
 
     private void refreshReziseri() {
@@ -1035,5 +1031,4 @@ URL wiki = null;
         ScenaristaList1.setListData(this.scenaristi.toArray());
     }
 
-    
 }

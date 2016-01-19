@@ -12,11 +12,14 @@ import java.util.List;
  * @author Rastislav
  */
 public interface ScenaristaDao {
+
     public void pridat(Scenarista scenarista);
 
     public void odstranit(Scenarista scenarista);
 
     public List<Scenarista> dajVsetkych();
+
     public List<Scenarista> dajVsetkychZID(String id);
+
     public Scenarista podlaID(int id);
 }

@@ -1,9 +1,9 @@
-
 package kniznica;
 
 import java.net.URL;
 
 public class Herec {
+
     private int id;
     private String meno;
     private URL wiki;//prepisat v databaze na text z varchar
@@ -31,7 +31,8 @@ public class Herec {
     public void setWiki(URL wiki) {
         this.wiki = wiki;
     }
-    public String toString(){
-    return this.meno;    
+
+    public String toString() {
+        return this.meno;
     }
 }

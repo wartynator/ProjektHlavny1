@@ -31,7 +31,8 @@ import kniznica.*;
  * @author Matúš
  */
 public class FilmInfoForm extends javax.swing.JDialog {
-   Film film = new Film();
+
+    Film film = new Film();
     private List<Herec> herci = new ArrayList<>();
     private List<Stat> staty = new ArrayList<>();
     private List<Zaner> zanre = new ArrayList<>();
@@ -43,7 +44,7 @@ public class FilmInfoForm extends javax.swing.JDialog {
     private ZanerDao ZanerDao = ZanerDaoFactory.INSTANCE.getZanerDao();
     private ReziserDao ReziserDao = ReziserDaoFactory.INSTANCE.getReziserDao();
     private ScenaristaDao ScenaristaDao = ScenaristaDaoFactory.INSTANCE.getScenaristaDao();
-    
+
     /**
      * Creates new form FilmInfoForm
      */
@@ -51,60 +52,51 @@ public class FilmInfoForm extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
+
     FilmInfoForm(Frame parent, boolean modal, Film film) throws IOException {
         super(parent, modal);
         initComponents();
         this.getContentPane().setBackground(Color.white);
         jPanel1.setBackground(Color.white);
         setLocationRelativeTo(null);
-        
-        
-        
+
         this.film = film;
-        
+
         NazovFilmu.setText(film.getNazov());
         NazovFilmu.setForeground(Color.red);
-        
-        
-        HodnotenieLabel.setText(Integer.toString(film.getHodnotenie())+"%");
-        
+
+        HodnotenieLabel.setText(Integer.toString(film.getHodnotenie()) + "%");
+
         herci = HerecDao.dajVsetkychZID(Integer.toString(film.getId()));
         HerciList.setListData(herci.toArray());
-    
+
         staty = StatDao.dajVsetkychZID(Integer.toString(film.getId()));
         StatyList.setListData(staty.toArray());
-        
+
         zanre = ZanerDao.dajVsetkychZID(Integer.toString(film.getId()));
         ZanreList.setListData(zanre.toArray());
-       
+
         reziser = ReziserDao.dajVsetkychZID(Integer.toString(film.getId()));
         ReziserList.setListData(reziser.toArray());
-        
-        scenarista=ScenaristaDao.dajVsetkychZID(Integer.toString(film.getId()));
+
+        scenarista = ScenaristaDao.dajVsetkychZID(Integer.toString(film.getId()));
         ScenaristaList.setListData(scenarista.toArray());
-        
-        String recenzia = film.getRecenzia().toString();        
+
+        String recenzia = film.getRecenzia().toString();
         RecenziaTextField.setText(recenzia);
         RecenziaTextField.setEditable(false);
-        
+
         String trailer = film.getTrailer().toString();
         TrailerTextField.setText(trailer);
         TrailerTextField.setEditable(false);
-        
+
         DlzkaTextField.setText(Integer.toString(film.getDlzka()));
         DlzkaTextField.setEditable(false);
         obsahTextArea.setLineWrap(true);
         obsahTextArea.setWrapStyleWord(true);
         obsahTextArea.setText(film.getObsah());
         obsahTextArea.setEditable(false);
-        
-        
-        
-        
-        
-        
-        
+
     }
 
     /**
@@ -385,68 +377,68 @@ public class FilmInfoForm extends javax.swing.JDialog {
 
     private void HerciListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HerciListMouseClicked
         Herec herec = (Herec) HerciList.getSelectedValue();
-        URL url = herec.getWiki();        
-        if(evt.getClickCount() == 2){
-       try {
-        openWebpage(url.toURI());
-    } catch (URISyntaxException e) {
-        e.printStackTrace();
-    }
+        URL url = herec.getWiki();
+        if (evt.getClickCount() == 2) {
+            try {
+                openWebpage(url.toURI());
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_HerciListMouseClicked
 
     private void ReziserListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReziserListMouseClicked
         Reziser reziser = (Reziser) ReziserList.getSelectedValue();
         URL url = reziser.getWiki();
-        if(evt.getClickCount() == 2){
-       try {
-        openWebpage(url.toURI());
-    } catch (URISyntaxException e) {
-        e.printStackTrace();
-    }
+        if (evt.getClickCount() == 2) {
+            try {
+                openWebpage(url.toURI());
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_ReziserListMouseClicked
 
     private void ScenaristaListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ScenaristaListMouseClicked
         Scenarista scenarista = (Scenarista) ScenaristaList.getSelectedValue();
         URL url = scenarista.getWiki();
-        if(evt.getClickCount() == 2){
-       try {
-        openWebpage(url.toURI());
-    } catch (URISyntaxException e) {
-        e.printStackTrace();
-    }
+        if (evt.getClickCount() == 2) {
+            try {
+                openWebpage(url.toURI());
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
         }
     }//GEN-LAST:event_ScenaristaListMouseClicked
 
     private void RecenziaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RecenziaButtonActionPerformed
-       try {
-           URL url = new URL(RecenziaTextField.getText());
-           openWebpage(url.toURI());
-       } catch (MalformedURLException ex) {
-           Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-       } catch (URISyntaxException ex) {
-           Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-       }
+        try {
+            URL url = new URL(RecenziaTextField.getText());
+            openWebpage(url.toURI());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RecenziaButtonActionPerformed
 
     private void TrailerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrailerButtonActionPerformed
         URL url;
-       try {
-           url = new URL(TrailerTextField.getText());
-           openWebpage(url.toURI());
-       } catch (MalformedURLException ex) {
-           Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-       } catch (URISyntaxException ex) {
-           Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-       }
-        
+        try {
+            url = new URL(TrailerTextField.getText());
+            openWebpage(url.toURI());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(FilmInfoForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_TrailerButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -518,15 +510,14 @@ public class FilmInfoForm extends javax.swing.JDialog {
     private javax.swing.JTextArea obsahTextArea;
     // End of variables declaration//GEN-END:variables
 
-
-public static void openWebpage(URI uri) {
-    Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-    if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-        try {
-            desktop.browse(uri);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static void openWebpage(URI uri) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(uri);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-}
 }

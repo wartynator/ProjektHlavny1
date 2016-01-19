@@ -6,6 +6,7 @@
 package kniznica;
 
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,44 +16,45 @@ import static org.junit.Assert.*;
  *
  * @author Rastislav
  */
-public class SQLZanerTest {
-    
-       private final SQLZaner sqlZaner = new SQLZaner();    
-    private final SQLFilm sqlFilm = new SQLFilm();
+public class SQLReziserDaoTest {
+
+    private final SQLReziserDao sqlReziser = new SQLReziserDao();
+    private final SQLFilmDao sqlFilm = new SQLFilmDao();
+
     @BeforeClass
     public static void setUp() {
         System.setProperty("junit", "true");
     }
-    
+
     @Test
     public void pridatTest() throws MalformedURLException {
-        Zaner pridany = new Zaner();
+        Reziser pridany = new Reziser();
         pridany.setId(sqlFilm.idecko());
-        pridany.setMeno("akcny");
-        sqlZaner.pridat(pridany);
-        assertNotNull(pridany.getId());       
-        Zaner kontrolny = sqlZaner.podlaID(pridany.getId());
+        pridany.setMeno("Troy McLoor");
+        URL recenzia = new URL("https://sk.wikipedia.org/");
+        pridany.setWiki(recenzia);
+        sqlReziser.pridat(pridany);
+        Reziser kontrolny = sqlReziser.podlaID(pridany.getId());
         assertNotNull(kontrolny);
-        
+
     }
-    
-   
+
     @Test
     public void vymazTest() throws MalformedURLException {
-       Zaner pridany = new Zaner();
+        Reziser pridany = new Reziser();
         pridany.setId(sqlFilm.idecko());
-        pridany.setMeno("akcny");
-        sqlZaner.pridat(pridany);
+        pridany.setMeno("Troy McLoor");
+        URL recenzia = new URL("https://sk.wikipedia.org/");
+        pridany.setWiki(recenzia);
+        sqlReziser.pridat(pridany);
         assertNotNull(pridany.getId());
-        sqlZaner.odstranit(pridany);
-        
-            }
-    
-    
-    
+        sqlReziser.odstranit(pridany);
+
+    }
+
     @Test
     public void findAllTest() {
-        List<Zaner>zanre = sqlZaner.dajVsetkych();
-        assertNotNull(zanre);
+        List<Reziser> reziseri = sqlReziser.dajVsetkych();
+        assertNotNull(reziseri);
     }
 }

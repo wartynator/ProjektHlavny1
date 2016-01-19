@@ -9,9 +9,8 @@ import java.net.URL;
 import java.sql.Time;
 import java.util.Date;
 
-
-
 public class Film {
+
     private int Id;
     private int hodnotenie;
     private String nazov;
@@ -20,14 +19,13 @@ public class Film {
     private String obsah;
     private URL trailer;
     private URL recenzia;
-    
+
+    public void setId(int id) {
+        this.Id = id;
+    }
 
     public int getId() {
         return Id;
-    }
-
-    public void setId(int Id) {
-        this.Id = Id;
     }
 
     public int getHodnotenie() {
@@ -37,16 +35,15 @@ public class Film {
     public void setHodnotenie(int hodnotenie) {
         this.hodnotenie = hodnotenie;
     }
-      public String getNazov() {
+
+    public String getNazov() {
         return nazov;
     }
 
-   
     public void setNazov(String nazov) {
         this.nazov = nazov;
     }
-    
-   
+
     public int getDlzka() {
         return dlzka;
     }
@@ -63,7 +60,6 @@ public class Film {
         this.premiera = premiera;
     }
 
-   
     public String getObsah() {
         return obsah;
     }
@@ -88,12 +84,8 @@ public class Film {
         this.recenzia = recenzia;
     }
 
-   public String toString(){
-  return this.nazov ;
-   }
-  
+    public String toString() {
+        return this.nazov;
+    }
 
-      
-  
-    
 }
