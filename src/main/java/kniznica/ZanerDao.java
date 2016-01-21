@@ -13,4 +13,6 @@ public interface ZanerDao {
     public List<Zaner> dajVsetkychZID(String id);
 
     public Zaner podlaID(int id);
+
+    public List<Zaner> dajPodlaPismen(String pismena);
 }

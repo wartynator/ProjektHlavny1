@@ -29,7 +29,7 @@ public class SQLHerecDaoTest {
     @Test
     public void pridatTest() throws MalformedURLException {
         Herec pridanyHerec = new Herec();
-        pridanyHerec.setId(sqlFilm.idecko());
+        pridanyHerec.setId(1);
         pridanyHerec.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridanyHerec.setWiki(recenzia);
@@ -43,7 +43,7 @@ public class SQLHerecDaoTest {
     @Test
     public void vymazTest() throws MalformedURLException {
         Herec pridanyHerec = new Herec();
-        pridanyHerec.setId(sqlFilm.idecko());
+        pridanyHerec.setId(1);
         pridanyHerec.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridanyHerec.setWiki(recenzia);

@@ -13,4 +13,6 @@ public interface HerecDao {
     public List<Herec> dajVsetkychZID(String id);
 
     public Herec podlaID(int id);
+
+    public List<Herec> dajPodlaPismen(String pismena);
 }

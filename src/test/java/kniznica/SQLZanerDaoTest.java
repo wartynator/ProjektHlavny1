@@ -28,7 +28,7 @@ public class SQLZanerDaoTest {
     @Test
     public void pridatTest() throws MalformedURLException {
         Zaner pridany = new Zaner();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("akcny");
         sqlZaner.pridat(pridany);
         assertNotNull(pridany.getId());
@@ -40,7 +40,7 @@ public class SQLZanerDaoTest {
     @Test
     public void vymazTest() throws MalformedURLException {
         Zaner pridany = new Zaner();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("akcny");
         sqlZaner.pridat(pridany);
         assertNotNull(pridany.getId());

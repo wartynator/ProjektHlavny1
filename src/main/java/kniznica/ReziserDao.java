@@ -23,4 +23,6 @@ public interface ReziserDao {
 
     public Reziser podlaID(int id);
 
+    public List<Reziser> dajPodlaPismen(String pismena);
+
 }

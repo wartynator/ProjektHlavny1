@@ -28,7 +28,7 @@ public class SQLStatDaoTest {
     @Test
     public void pridatTest() throws MalformedURLException {
         Stat pridany = new Stat();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setNazov("USA");
         sqlStat.pridat(pridany);
         assertNotNull(pridany.getId());
@@ -40,7 +40,7 @@ public class SQLStatDaoTest {
     @Test
     public void vymazTest() throws MalformedURLException {
         Stat pridany = new Stat();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setNazov("USA");
         sqlStat.pridat(pridany);
         assertNotNull(pridany.getId());

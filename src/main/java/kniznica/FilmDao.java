@@ -23,4 +23,6 @@ public interface FilmDao {
     public Film podlaID(int id);
 
     public List<Film> dajVsetkychZID(String id);
+
+    public List<Film> dajPodlaPismen(String pismena);
 }

@@ -53,4 +53,11 @@ public class SQLZanerDao implements ZanerDao {
         Zaner vysledny = zanre.get(0);
         return vysledny;
     }
+
+    @Override
+    public List<Zaner> dajPodlaPismen(String pismena) {
+        String sql = "SELECT meno FROM zaner where nazov like '" + pismena + "%'order by nazov asc limit 10";
+        BeanPropertyRowMapper<Zaner> mapper = BeanPropertyRowMapper.newInstance(Zaner.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
 }

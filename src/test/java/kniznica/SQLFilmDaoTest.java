@@ -38,7 +38,7 @@ public class SQLFilmDaoTest {
         pridanyFilm.setNazov("Skusobny");
         pridanyFilm.setDlzka(10);
         pridanyFilm.setHodnotenie(5);
-        pridanyFilm.setId(sqlFilm.idecko());
+        pridanyFilm.setId(sqlFilm.idecko(pridanyFilm.getNazov()));
         pridanyFilm.setObsah("tasggs");
         Date datum = sdf.parse(1999 + "-" + 12 + "-" + 12);
         pridanyFilm.setPremiera(datum);
@@ -61,7 +61,7 @@ public class SQLFilmDaoTest {
         pridanyFilm.setNazov("Skusobny");
         pridanyFilm.setDlzka(10);
         pridanyFilm.setHodnotenie(5);
-        pridanyFilm.setId(sqlFilm.idecko());
+        pridanyFilm.setId(sqlFilm.idecko(pridanyFilm.getNazov()));
         pridanyFilm.setObsah("tasggs");
         Date datum = sdf.parse(1999 + "-" + 12 + "-" + 12);
         pridanyFilm.setPremiera(datum);

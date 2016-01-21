@@ -53,4 +53,11 @@ public class SQLStatDao implements StatDao {
         Stat vysledny = staty.get(0);
         return vysledny;
     }
+
+    @Override
+    public List<Stat> dajPodlaPismen(String pismena) {
+        String sql = "SELECT nazov FROM stat where nazov like '" + pismena + "%'order by nazov asc limit 10";
+        BeanPropertyRowMapper<Stat> mapper = BeanPropertyRowMapper.newInstance(Stat.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
 }

@@ -29,7 +29,7 @@ public class SQLReziserDaoTest {
     @Test
     public void pridatTest() throws MalformedURLException {
         Reziser pridany = new Reziser();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridany.setWiki(recenzia);
@@ -42,7 +42,7 @@ public class SQLReziserDaoTest {
     @Test
     public void vymazTest() throws MalformedURLException {
         Reziser pridany = new Reziser();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridany.setWiki(recenzia);

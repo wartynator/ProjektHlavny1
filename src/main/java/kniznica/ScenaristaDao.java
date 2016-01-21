@@ -22,4 +22,6 @@ public interface ScenaristaDao {
     public List<Scenarista> dajVsetkychZID(String id);
 
     public Scenarista podlaID(int id);
+
+    public List<Scenarista> dajPodlaPismen(String pismena);
 }

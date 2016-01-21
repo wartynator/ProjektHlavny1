@@ -58,4 +58,11 @@ public class SQLHerecDao implements HerecDao {
         return jdbcTemplate.query(sql, mapper);
     }
 
+    @Override
+    public List<Herec> dajPodlaPismen(String pismena) {
+        String sql = "SELECT meno FROM herec where nazov like '" + pismena + "%'order by nazov asc limit 10";
+        BeanPropertyRowMapper<Herec> mapper = BeanPropertyRowMapper.newInstance(Herec.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+
 }

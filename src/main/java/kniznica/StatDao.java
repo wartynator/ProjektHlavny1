@@ -13,4 +13,6 @@ public interface StatDao {
     public List<Stat> dajVsetkychZID(String id);
 
     public Stat podlaID(int id);
+
+    public List<Stat> dajPodlaPismen(String pismena);
 }

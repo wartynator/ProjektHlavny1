@@ -29,7 +29,7 @@ public class SQLScenaristaDaoTest {
     @Test
     public void pridatTest() throws MalformedURLException {
         Scenarista pridany = new Scenarista();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridany.setWiki(recenzia);
@@ -42,7 +42,7 @@ public class SQLScenaristaDaoTest {
     @Test
     public void vymazTest() throws MalformedURLException {
         Scenarista pridany = new Scenarista();
-        pridany.setId(sqlFilm.idecko());
+        pridany.setId(1);
         pridany.setMeno("Troy McLoor");
         URL recenzia = new URL("https://sk.wikipedia.org/");
         pridany.setWiki(recenzia);

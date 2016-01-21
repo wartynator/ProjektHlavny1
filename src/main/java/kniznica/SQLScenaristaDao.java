@@ -61,4 +61,11 @@ public class SQLScenaristaDao implements ScenaristaDao {
         Scenarista vysledny = herci.get(0);
         return vysledny;
     }
+
+    @Override
+    public List<Scenarista> dajPodlaPismen(String pismena) {
+        String sql = "SELECT meno FROM scenarista where nazov like '" + pismena + "%'order by nazov asc limit 10";
+        BeanPropertyRowMapper<Scenarista> mapper = BeanPropertyRowMapper.newInstance(Scenarista.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
 }

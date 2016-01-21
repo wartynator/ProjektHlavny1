@@ -90,6 +90,13 @@ public class SQLFilmDao implements FilmDao {
     }
 
     @Override
+    public List<Film> dajPodlaPismen(String pismena) {
+        String sql = "SELECT nazov FROM filmy where nazov like '" + pismena + "%'order by nazov asc limit 10";
+        BeanPropertyRowMapper<Film> mapper = BeanPropertyRowMapper.newInstance(Film.class);
+        return jdbcTemplate.query(sql, mapper);
+    }
+
+    @Override
     public List<Film> dajFilmyZanre(String zaner) {
         String sql = "select f1.* from filmy f1 join zaner z1 on f1.id = z1.id where z1.meno like " + "'" + zaner + "'";
 
