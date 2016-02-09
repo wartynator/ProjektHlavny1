@@ -164,7 +164,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         PridajRecenziu = new javax.swing.JButton();
         PridajTrailerButton1 = new javax.swing.JButton();
 
-        PridajHercaForm.setSize(new java.awt.Dimension(50, 50));
+        PridajHercaForm.setSize(new java.awt.Dimension(250, 250));
 
         jLabel1.setText("Meno:");
 
@@ -223,6 +223,9 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
+        PridajStatForm.setPreferredSize(new java.awt.Dimension(500, 500));
+        PridajStatForm.setSize(new java.awt.Dimension(250, 250));
+
         jLabel3.setText("Nazov");
 
         PridajStatButton.setText("Pridaj");
@@ -271,6 +274,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
+        PridajZanerForm.setSize(new java.awt.Dimension(250, 250));
+
         jLabel5.setText("Meno:");
 
         PridajZanerButton.setText("Pridaj");
@@ -317,6 +322,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                     .addComponent(ZrusZanerFormButton))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
+
+        PridajScenaristuForm.setSize(new java.awt.Dimension(250, 250));
 
         jLabel7.setText("Meno:");
 
@@ -376,6 +383,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
+        PridajReziseraForm.setSize(new java.awt.Dimension(250, 250));
+
         jLabel9.setText("Meno:");
 
         jLabel10.setText("Zivotopis:");
@@ -432,6 +441,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                     .addComponent(ZrusReziseraButton))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
+
+        PridajPremieruForm.setSize(new java.awt.Dimension(250, 250));
 
         pridajPremieruButton.setText("Pridaj");
         pridajPremieruButton.addActionListener(new java.awt.event.ActionListener() {
@@ -505,6 +516,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
+        PridajObsahForm.setSize(new java.awt.Dimension(250, 250));
+
         PridajObsahButton.setText("Pridaj");
         PridajObsahButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -556,6 +569,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        PridajRecenziuForm.setSize(new java.awt.Dimension(250, 250));
+
         RecenziaLabel.setText("Recenzia");
 
         PridajRecenziuButton.setText("Pridaj");
@@ -602,6 +617,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
+        PridajTrailerForm.setSize(new java.awt.Dimension(250, 250));
+
         RecenziaLabel2.setText("Trailer");
 
         PridajTrailerButton.setText("Pridaj");
@@ -647,6 +664,8 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                     .addComponent(ZrusTrailerButton))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
+
+        PridajDlzkuForm.setSize(new java.awt.Dimension(250, 250));
 
         jLabel19.setText("Dlzka");
 

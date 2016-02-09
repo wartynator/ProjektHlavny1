@@ -5,7 +5,7 @@
     <Container class="javax.swing.JFrame" name="PridajHercaForm">
       <Properties>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[50, 50]"/>
+          <Dimension value="[250, 250]"/>
         </Property>
       </Properties>
 
@@ -91,6 +91,14 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajStatForm">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 500]"/>
+        </Property>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -159,6 +167,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajZanerForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -226,6 +239,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajScenaristuForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -312,6 +330,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajReziseraForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -395,6 +418,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajPremieruForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -497,6 +525,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajObsahForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -576,6 +609,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajRecenziuForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -641,6 +679,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajTrailerForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -706,6 +749,11 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PridajDlzkuForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[250, 250]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
