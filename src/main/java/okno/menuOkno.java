@@ -41,6 +41,7 @@ public class menuOkno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TOP10List = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -53,11 +54,11 @@ public class menuOkno extends javax.swing.JFrame {
         HladajButton = new javax.swing.JButton();
         ZanreComboBox = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
-        setPreferredSize(new java.awt.Dimension(690, 430));
+        setPreferredSize(new java.awt.Dimension(900, 600));
+        setSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(null);
 
         TOP10List.setModel(new javax.swing.AbstractListModel() {
@@ -132,8 +133,6 @@ public class menuOkno extends javax.swing.JFrame {
         jLabel4.setText("Filmy:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(210, 10, 40, 14);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 0, 660, 390);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,6 +205,7 @@ public class menuOkno extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(menuOkno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

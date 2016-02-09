@@ -1,6 +1,778 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JFrame" name="PridajHercaForm">
+      <Properties>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[50, 50]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="MenoHercaForm" max="32767" attributes="0"/>
+                      <Component id="ZivotopisHercaForm" pref="93" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="170" max="32767" attributes="0"/>
+                  <Component id="PridajHercaButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="ZrusHercaButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MenoHercaForm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZivotopisHercaForm" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajHercaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusHercaButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Meno:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zivotopis:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="MenoHercaForm">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZivotopisHercaForm">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajHercaButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajHercaButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusHercaButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusHercaButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajStatForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="StatyTextField" min="-2" pref="93" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                          <Component id="PridajStatButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="ZrusHercaButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="StatyTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajStatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusHercaButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="79" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nazov"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="StatyTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajStatButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajStatButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusHercaButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusHercaButton1ActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajZanerForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="PridajZanerButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="ZrusZanerFormButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="ZanerTextField" min="-2" pref="176" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="21" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZanerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajZanerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusZanerFormButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="90" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Meno:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZanerTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajZanerButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajZanerButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusZanerFormButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusZanerFormButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajScenaristuForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="MenoScenaristuTextfield" max="32767" attributes="0"/>
+                              <Component id="ZivotopisScenaristuTextField" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="116" max="32767" attributes="0"/>
+                          <Component id="PridajScenaristuButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="ZrusScenaristuButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MenoScenaristuTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZivotopisScenaristuTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajScenaristuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusScenaristuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="94" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Meno:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zivotopis:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="MenoScenaristuTextfield">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZivotopisScenaristuTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajScenaristuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajScenaristuButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusScenaristuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusScenaristuButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajReziseraForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="MenoReziseraTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ZivotopisReziseraTextField" alignment="0" pref="93" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="248" max="32767" attributes="0"/>
+                  <Component id="PridajReziseraButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="ZrusReziseraButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MenoReziseraTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZivotopisReziseraTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajReziseraButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusReziseraButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="139" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Meno:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zivotopis:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="MenoReziseraTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="ZivotopisReziseraTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajReziseraButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajReziseraButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusReziseraButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusReziseraButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajPremieruForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="rokLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="MesiacLabel" min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="DenLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="pridajPremieruButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="ZrusPremieruButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="rokTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="mesiacTextField" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="denTextField" min="-2" pref="43" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="120" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="DenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MesiacLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rokLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="rokTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="mesiacTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="denTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="pridajPremieruButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusPremieruButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="112" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JToggleButton" name="pridajPremieruButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pridajPremieruButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusPremieruButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusPremieruButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="denTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="rokTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rokTextFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="mesiacTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="DenLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="den"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="MesiacLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="mesiac"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="rokLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="rok"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajObsahForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ObsahLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="ZrusObsahButton" max="32767" attributes="0"/>
+                      <Component id="PridajObsahButton" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="51" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" pref="182" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ObsahLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="PridajObsahButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="ZrusObsahButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JToggleButton" name="PridajObsahButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajObsahButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusObsahButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusObsahButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ObsahLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Obsah"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="ObsahTextArea">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajRecenziuForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="RecenziaLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="PridajRecenziuButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ZrusRecenziuButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="RecenziaTextField" min="-2" pref="228" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="RecenziaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="RecenziaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajRecenziuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusRecenziuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="RecenziaLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Recenzia"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="RecenziaTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajRecenziuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajRecenziuButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusRecenziuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusRecenziuButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajTrailerForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="RecenziaLabel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="PridajTrailerButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ZrusTrailerButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="TrailerTextField" min="-2" pref="237" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="RecenziaLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TrailerTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajTrailerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusTrailerButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="69" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="RecenziaLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Trailer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TrailerTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajTrailerButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajTrailerButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusTrailerButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusTrailerButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PridajDlzkuForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="PridajDlzkuButton" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="ZrusDlzkuButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="DlzkaTextField" min="-2" pref="147" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DlzkaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="PridajDlzkuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ZrusDlzkuButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="79" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel19">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dlzka"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="DlzkaTextField">
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="PridajDlzkuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pridaj"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajDlzkuButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="ZrusDlzkuButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZrusDlzkuButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,17 +795,18 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane7" pref="592" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jScrollPane7" min="-2" pref="781" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jScrollPane7" pref="870" max="32767" attributes="0"/>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane7" min="-2" pref="702" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,145 +826,83 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="NazovLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                      <Component id="NazovTextField1" min="-2" pref="205" max="-2" attributes="0"/>
-                      <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
-                      <Component id="HodnotenieLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="HodnotenieTextField1" min="-2" pref="109" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" min="-2" pref="176" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="HerciLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="MenoHercaTextField" min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="HercovZivotopisTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="ZmazHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jScrollPane9" min="-2" pref="176" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="NazovZanruLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ZanerTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="ZmazZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="StatLabel1" min="-2" pref="39" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="jScrollPane10" min="-2" pref="173" max="-2" attributes="0"/>
-                      <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="StatyTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajStatButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="ZmazStatButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="ReziserLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                      <Component id="jScrollPane14" min="-2" pref="173" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="HerciLabel5" min="-2" max="-2" attributes="0"/>
-                          <Component id="ReziserTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                          <Component id="RezZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajReziseraButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="ZmazReziseraButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ScenaristaLabel2" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                              <Component id="jScrollPane15" min="-2" pref="173" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="NazovLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                              <Component id="NazovTextField1" min="-2" pref="205" max="-2" attributes="0"/>
+                              <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
+                              <Component id="HodnotenieLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane8" min="-2" pref="176" max="-2" attributes="0"/>
+                                  <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane10" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                  <Component id="StatLabel1" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="ReziserLabel1" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jScrollPane14" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PridajHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="ZmazHercaButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="PridajStatButton1" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="ZmazStatButton1" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="PridajReziseraButton1" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="ZmazReziseraButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ScenaristaTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                          <Component id="ScenZivTextField1" min="-2" pref="118" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ZmazScenaristuButton1" min="-2" pref="109" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PremieraLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="DlzkaLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="RokLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                              <Component id="MesiacLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="DenLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="HodnotenieTextField1" min="-2" pref="109" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="rokTextField1" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="mesiac1" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="den1" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane9" min="-2" pref="176" max="-2" attributes="0"/>
+                                          <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane15" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ScenaristaLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ZmazZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="PridajZanerButton1" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="PridajScenaristuButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ZmazScenaristuButton1" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="PridajPRemieruButton" pref="123" max="32767" attributes="0"/>
+                                          <Component id="PridajTrailerButton1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="PridajDlzku1" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="PridajRecenziu" pref="123" max="32767" attributes="0"/>
+                                          <Component id="PridajObsah" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="61" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="DlzkaTextField1" min="-2" pref="106" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
-                      <Component id="ObsahLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jScrollPane13" min="-2" pref="287" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="RecenziaLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                      <Component id="RecenziaTextField1" min="-2" pref="185" max="-2" attributes="0"/>
-                      <EmptySpace min="80" pref="80" max="-2" attributes="0"/>
-                      <Component id="TrailerLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                      <Component id="TrailerTextField1" min="-2" pref="185" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="387" pref="387" max="-2" attributes="0"/>
-                      <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -210,164 +921,99 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="HerciLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="MenoHercaTextField" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                              <Component id="HercovZivotopisTextField1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="PridajHercaButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                              <Component id="ZmazHercaButton1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="ZmazHercaButton1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jScrollPane9" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="PridajZanerButton1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                      <Component id="ZmazZanerButton1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="HerciLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PridajHercaButton1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane8" min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="StatLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ScenaristaLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ZanreLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane9" min="-2" pref="93" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                              <Component id="NazovZanruLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="ZanerTextField1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane10" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="PridajStatButton1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="ZmazStatButton1" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="PridajZanerButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="47" pref="47" max="-2" attributes="0"/>
-                              <Component id="ZmazZanerButton1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="ZmazScenaristuButton1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane15" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="StatLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="StatyLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="StatyTextField1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="PridajStatButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                              <Component id="ZmazStatButton1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="9" pref="9" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane14" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ReziserLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="HerciLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="ReziserTextField1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="RezZivTextField1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="ReziserLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="PridajReziseraButton1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="ZmazReziseraButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jScrollPane14" min="-2" pref="92" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ScenaristaLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane15" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PridajFilmButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="StornoButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="ScenaristaLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="ScenaristaTextField1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
-                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                              <Component id="ScenZivTextField1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="PridajScenaristuButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                              <Component id="ZmazScenaristuButton1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-                              <Component id="PremieraLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="24" pref="24" max="-2" attributes="0"/>
-                              <Component id="DlzkaLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RokLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="MesiacLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="DenLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PridajPRemieruButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PridajRecenziu" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rokTextField1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="mesiac1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="den1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="PridajTrailerButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PridajObsah" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                              <Component id="DlzkaTextField1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="PridajDlzku1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="ObsahLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane13" min="-2" pref="81" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RecenziaLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="RecenziaTextField1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
-                              <Component id="TrailerLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="TrailerTextField1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="PridajFilmButton1" min="-2" max="-2" attributes="0"/>
-                          <Component id="StornoButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="HerciLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Herci"/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane8">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -378,13 +1024,7 @@
                 <Component class="javax.swing.JList" name="HerciList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -405,18 +1045,17 @@
                 <Component class="javax.swing.JList" name="ZanreList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="HerciLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Herci"/>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JLabel" name="StatLabel1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Staty"/>
@@ -432,35 +1071,12 @@
                 <Component class="javax.swing.JList" name="StatyList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="RecenziaLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Recenzia"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RecenziaTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="TrailerLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Trailer"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="TrailerTextField1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TrailerTextField1ActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="PridajHercaButton1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="PridajHerca"/>
@@ -541,71 +1157,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ZmazScenaristuButton1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="mesiac1">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="mesiac1KeyTyped"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="den1">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="den1KeyTyped"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RokLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="yyyy"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="MesiacLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="mm"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="DenLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="dd"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="PremieraLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Premiera"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="rokTextField1">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rokTextField1KeyTyped"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane13">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="ObsahTextArea1">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="DlzkaLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Dlzka"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="DlzkaTextField1">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="DlzkaTextField1KeyTyped"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ObsahLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Obsah"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="HodnotenieTextField1">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="HodnotenieTextField1KeyTyped"/>
@@ -621,62 +1172,6 @@
             <Component class="javax.swing.JLabel" name="NazovLabel1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nazov"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="MenoHercaTextField">
-            </Component>
-            <Component class="javax.swing.JTextField" name="HercovZivotopisTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="HerciLabel3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MenoHerca"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="HercovZiv."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ZanerTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="NazovZanruLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="NazovZanru"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="StatyTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="StatyLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="NazovStatu"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ReziserTextField1">
-            </Component>
-            <Component class="javax.swing.JTextField" name="RezZivTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="HerciLabel5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MenoRezisera"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ReziserovZiv."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ScenZivTextField1">
-            </Component>
-            <Component class="javax.swing.JTextField" name="ScenaristaTextField1">
-            </Component>
-            <Component class="javax.swing.JLabel" name="ScenaristaLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MenoScenaristu"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ScenaristovZiv."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="PridajFilmButton1">
@@ -705,13 +1200,7 @@
                 <Component class="javax.swing.JList" name="ReziserList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -732,13 +1221,7 @@
                 <Component class="javax.swing.JList" name="ScenaristaList1">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                        <StringItem index="4" value="Item 5"/>
-                      </StringArray>
+                      <StringArray count="0"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -748,6 +1231,46 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Scenarista"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="PridajObsah">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pridaj obsah"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajObsahActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="PridajPRemieruButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pridaj premieru"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajPRemieruButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="PridajDlzku1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pridaj dlzku"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajDlzku1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="PridajRecenziu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pridaj recenziu"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajRecenziuActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="PridajTrailerButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pridaj trailer"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PridajTrailerButton1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
