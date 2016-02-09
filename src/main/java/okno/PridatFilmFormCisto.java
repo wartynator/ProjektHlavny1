@@ -30,6 +30,11 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
 
     private FilmDao sqlfilm = FilmDaoFactory.INSTANCE.getFilmDao();
     private Film film;
+    private int dlzka;
+    private Date premiera;
+    private String obsah;
+    private URL recenzia;
+    private URL trailer;
     private Set<Herec> herci = new HashSet<>();
     private Set<Stat> staty = new HashSet<>();
     private Set<Zaner> zanre = new HashSet<>();
@@ -1043,7 +1048,11 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         
 
         Film film = new Film();
-
+        int dlzka=this.dlzka;
+        Date premiera = this.premiera;
+        URL recenzia = this.recenzia;
+        URL trailer= this.trailer;
+        String obsah= this.obsah;
         int hodnotenie;
         String kont2 = HodnotenieTextField1.getText();
         if (kont2.trim().isEmpty()) {
@@ -1060,7 +1069,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
             return;
         }
         film.setNazov(nazov);     
-
+        
         sqlfilm.pridat(film);
         int id = sqlfilm.idecko(film.getNazov());
         StatDao sqlstat = StatDaoFactory.INSTANCE.getStatDao();
@@ -1299,7 +1308,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
             JOptionPane.showMessageDialog(this, "Nevyplnili ste recenziu!");
             return;
         }
-        film.setRecenzia(recenzia);
+        this.recenzia=recenzia;
         RecenziaTextField.setText("");
         PridajRecenziuForm.setVisible(false);
     }//GEN-LAST:event_PridajRecenziuButtonActionPerformed
@@ -1317,8 +1326,8 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
         } else {
             dlzka = Integer.parseInt(DlzkaTextField.getText());
         }
-        film.setDlzka(dlzka);
-        PridajDlzkuButton.setVisible(false);
+        this.dlzka=dlzka;
+        PridajDlzkuForm.setVisible(false);
         DlzkaTextField.setText("");
     }//GEN-LAST:event_PridajDlzkuButtonActionPerformed
 
@@ -1336,7 +1345,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
             JOptionPane.showMessageDialog(this, "Nevyplnili ste obsah!");
             return;
         }
-        film.setObsah(obsah); 
+        this.obsah=obsah;
         PridajObsahForm.setVisible(false);
         ObsahTextArea.setText("");
     }//GEN-LAST:event_PridajObsahButtonActionPerformed
@@ -1352,7 +1361,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
             JOptionPane.showMessageDialog(this, "Nevyplnili ste trailer!");
             return;
         }
-        film.setTrailer(trailer);
+        this.trailer=trailer;
         PridajTrailerForm.setVisible(false);
         TrailerTextField.setText("");
     }//GEN-LAST:event_PridajTrailerButtonActionPerformed
@@ -1392,7 +1401,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
         try {
 
             datum = sdf.parse(rokTextField.getText()+"-"+mesiacTextField.getText()+"-"+denTextField.getText());
-            
+         
         } catch (ParseException ex) {
             Logger.getLogger(PridatFilmFormCisto.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1401,8 +1410,10 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
             return;
         }
 
-        film.setPremiera(datum);
-        
+        this.premiera=datum;
+        rokTextField.setText("");
+        mesiacTextField.setText("");
+        denTextField.setText("");
         PridajPremieruForm.setVisible(false);
     }//GEN-LAST:event_pridajPremieruButtonActionPerformed
 
