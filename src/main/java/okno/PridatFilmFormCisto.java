@@ -1069,7 +1069,11 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
             return;
         }
         film.setNazov(nazov);     
-        
+        film.setDlzka(dlzka);
+        film.setObsah(obsah);
+        film.setTrailer(trailer);
+        film.setPremiera(premiera);
+        film.setRecenzia(recenzia);
         sqlfilm.pridat(film);
         int id = sqlfilm.idecko(film.getNazov());
         StatDao sqlstat = StatDaoFactory.INSTANCE.getStatDao();
