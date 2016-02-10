@@ -61,11 +61,6 @@ public class menuOkno extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(900, 600));
         getContentPane().setLayout(null);
 
-        TOP10List.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         TOP10List.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TOP10ListMouseClicked(evt);
@@ -76,11 +71,6 @@ public class menuOkno extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(385, 36, 137, 340);
 
-        Najnovsich10List.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane2.setViewportView(Najnovsich10List);
 
         getContentPane().add(jScrollPane2);
@@ -94,11 +84,6 @@ public class menuOkno extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(540, 16, 90, 14);
 
-        FilmyList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         FilmyList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 FilmyListMouseClicked(evt);
@@ -179,7 +164,10 @@ public class menuOkno extends javax.swing.JFrame {
             filmInfo.setVisible(true);
     }//GEN-LAST:event_TOP10ListMouseClicked
     }
-
+                              
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -259,4 +247,7 @@ public class menuOkno extends javax.swing.JFrame {
 
     }
 
+    
+    
+    
 }

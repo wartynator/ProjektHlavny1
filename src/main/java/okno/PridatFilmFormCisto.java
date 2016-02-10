@@ -228,7 +228,6 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        PridajStatForm.setPreferredSize(new java.awt.Dimension(500, 500));
         PridajStatForm.setSize(new java.awt.Dimension(250, 250));
 
         jLabel3.setText("Nazov");
@@ -463,9 +462,21 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
             }
         });
 
-        rokTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rokTextFieldActionPerformed(evt);
+        denTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                denTextFieldKeyTyped(evt);
+            }
+        });
+
+        rokTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                rokTextFieldKeyTyped(evt);
+            }
+        });
+
+        mesiacTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mesiacTextFieldKeyTyped(evt);
             }
         });
 
@@ -671,6 +682,11 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
         );
 
         PridajDlzkuForm.setSize(new java.awt.Dimension(250, 250));
+        PridajDlzkuForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PridajDlzkuFormKeyTyped(evt);
+            }
+        });
 
         jLabel19.setText("Dlzka");
 
@@ -1421,9 +1437,33 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
         PridajPremieruForm.setVisible(false);
     }//GEN-LAST:event_pridajPremieruButtonActionPerformed
 
-    private void rokTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rokTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rokTextFieldActionPerformed
+    private void rokTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rokTextFieldKeyTyped
+ char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_rokTextFieldKeyTyped
+
+    private void mesiacTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mesiacTextFieldKeyTyped
+ char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_mesiacTextFieldKeyTyped
+
+    private void denTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_denTextFieldKeyTyped
+ char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_denTextFieldKeyTyped
+
+    private void PridajDlzkuFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PridajDlzkuFormKeyTyped
+ char c = evt.getKeyChar();
+        if (!(Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE || c == KeyEvent.VK_DELETE)) {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_PridajDlzkuFormKeyTyped
 
     /**
      * @param args the command line arguments
