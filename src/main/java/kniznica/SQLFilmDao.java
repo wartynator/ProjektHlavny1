@@ -27,7 +27,7 @@ public class SQLFilmDao implements FilmDao {
 
     @Override
     public void pridat(Film film) {
-        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO filmy VALUES (?,?,?,?,?,?,?,?)";        
         jdbcTemplate.update(sql, null, film.getHodnotenie(), film.getNazov(), film.getDlzka(), film.getPremiera(), film.getObsah(), film.getTrailer().toString(), film.getRecenzia().toString());
     }
 
