@@ -228,7 +228,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        PridajStatForm.setSize(new java.awt.Dimension(250, 250));
+        PridajStatForm.setSize(new java.awt.Dimension(400, 250));
 
         jLabel3.setText("Nazov");
 
@@ -256,13 +256,14 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(StatyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(StatyTextField))
                     .addGroup(PridajStatFormLayout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(PridajStatButton)
                         .addGap(18, 18, 18)
-                        .addComponent(ZrusHercaButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ZrusHercaButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PridajStatFormLayout.setVerticalGroup(
             PridajStatFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +279,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
-        PridajZanerForm.setSize(new java.awt.Dimension(250, 250));
+        PridajZanerForm.setSize(new java.awt.Dimension(400, 250));
 
         jLabel5.setText("Meno:");
 
@@ -532,7 +533,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        PridajObsahForm.setSize(new java.awt.Dimension(250, 250));
+        PridajObsahForm.setSize(new java.awt.Dimension(500, 500));
 
         PridajObsahButton.setText("Pridaj");
         PridajObsahButton.addActionListener(new java.awt.event.ActionListener() {
@@ -585,7 +586,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        PridajRecenziuForm.setSize(new java.awt.Dimension(250, 250));
+        PridajRecenziuForm.setSize(new java.awt.Dimension(400, 250));
 
         RecenziaLabel.setText("Recenzia");
 
@@ -633,7 +634,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        PridajTrailerForm.setSize(new java.awt.Dimension(250, 250));
+        PridajTrailerForm.setSize(new java.awt.Dimension(400, 250));
 
         RecenziaLabel2.setText("Trailer");
 
@@ -681,7 +682,7 @@ public class PridatFilmFormCisto extends javax.swing.JFrame {
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
-        PridajDlzkuForm.setSize(new java.awt.Dimension(250, 250));
+        PridajDlzkuForm.setSize(new java.awt.Dimension(400, 250));
         PridajDlzkuForm.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 PridajDlzkuFormKeyTyped(evt);
@@ -1282,7 +1283,7 @@ Zaner zaner = new Zaner();
     }//GEN-LAST:event_PridajScenaristuButtonActionPerformed
 
     private void ZrusScenaristuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZrusScenaristuButtonActionPerformed
-PridajScenaristuForm.setVisible(false);        // TODO add your handling code here:
+        PridajScenaristuForm.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_ZrusScenaristuButtonActionPerformed
 
     private void PridajReziseraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajReziseraButtonActionPerformed
@@ -1334,7 +1335,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
     }//GEN-LAST:event_PridajRecenziuButtonActionPerformed
 
     private void ZrusRecenziuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZrusRecenziuButtonActionPerformed
-        // TODO add your handling code here:
+      PridajRecenziuForm.setVisible(false);
     }//GEN-LAST:event_ZrusRecenziuButtonActionPerformed
 
     private void PridajDlzkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PridajDlzkuButtonActionPerformed
@@ -1352,7 +1353,7 @@ PridajScenaristuForm.setVisible(false);        // TODO add your handling code he
     }//GEN-LAST:event_PridajDlzkuButtonActionPerformed
 
     private void ZrusDlzkuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZrusDlzkuButtonActionPerformed
-       PridajDlzkuButton.setVisible(false);
+       PridajDlzkuForm.setVisible(false);
     }//GEN-LAST:event_ZrusDlzkuButtonActionPerformed
 
     private void ZrusObsahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZrusObsahButtonActionPerformed
